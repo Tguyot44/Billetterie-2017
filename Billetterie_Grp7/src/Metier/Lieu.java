@@ -11,30 +11,28 @@ package Metier;
  */
 public class Lieu {
 
-    private String idLieu;
+    private int idLieu;
     private String nomLieu;
     private String adresseLieu;
     private int capaciteAccueil;
-    
-    
-     public Lieu(String idLieu, String nomLieu, String adresseLieu, int capaciteAccueil) {
+
+    public Lieu(int idLieu, String nomLieu, String adresseLieu, int capaciteAccueil) {
         this.idLieu = idLieu;
         this.nomLieu = nomLieu;
         this.adresseLieu = adresseLieu;
         this.capaciteAccueil = capaciteAccueil;
-
     }
 
     @Override
     public String toString() {
-        return "Lieu{" + "id=" + idLieu + ", nom=" + nomLieu + ", adresse=" + adresseLieu + ", capaciteAccueil=" + capaciteAccueil + '}';
+        return "Lieu{" + "idLieu=" + idLieu + ", nomLieu=" + nomLieu + ", adresseLieu=" + adresseLieu + ", capaciteAccueil=" + capaciteAccueil + '}';
     }
 
-    public String getIdLieu() {
+    public int getIdLieu() {
         return idLieu;
     }
 
-    public void setIdLieu(String idLieu) {
+    public void setIdLieu(int idLieu) {
         this.idLieu = idLieu;
     }
 
@@ -61,5 +59,7 @@ public class Lieu {
     public void setCapaciteAccueil(int capaciteAccueil) {
         this.capaciteAccueil = capaciteAccueil;
     }
+    
+    
     
 }

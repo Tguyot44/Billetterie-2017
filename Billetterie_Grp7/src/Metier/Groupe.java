@@ -11,29 +11,25 @@ package Metier;
  */
 public class Groupe {
 
-      private String idGroup;
-      private String nomGroup;
-      private String identite;
-      private String adresse;
-      private int nbPers;
-      private String nomPays;
-      private String hebergement;
-      
-      
-      public Groupe(String idGroup, String nomGroup, String identite, String adresse, int nbPers, String nomPays, String hebergement) {
+    private String idGroup;
+    private String nomGroup;
+    private String identite;
+    private String adresse;
+    private int nbPers;
+    private String nomPays;
+
+    public Groupe(String idGroup, String nomGroup, String identite, String adresse, int nbPers, String nomPays) {
         this.idGroup = idGroup;
         this.nomGroup = nomGroup;
         this.identite = identite;
         this.adresse = adresse;
         this.nbPers = nbPers;
         this.nomPays = nomPays;
-        this.hebergement = hebergement;
-
     }
 
     @Override
     public String toString() {
-        return "Groupe{" + "id=" + idGroup + ", nom=" + nomGroup + ", identite=" + identite + ", adresse=" + adresse + ", nbPers=" + nbPers + ", nomPays=" + nomPays + ", hebergement=" + hebergement + '}';
+        return "Groupe{" + "idGroup=" + idGroup + ", nomGroup=" + nomGroup + ", identite=" + identite + ", adresse=" + adresse + ", nbPers=" + nbPers + ", nomPays=" + nomPays + '}';
     }
 
     public String getIdGroup() {
@@ -83,13 +79,7 @@ public class Groupe {
     public void setNomPays(String nomPays) {
         this.nomPays = nomPays;
     }
-
-    public String getHebergement() {
-        return hebergement;
-    }
-
-    public void setHebergement(String hebergement) {
-        this.hebergement = hebergement;
-    }
+      
+    
        
 }
