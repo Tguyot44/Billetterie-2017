@@ -8,8 +8,6 @@ package Controller;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.JOptionPane;
 import DAO.RepresentationDAO;
@@ -52,14 +50,11 @@ public class CtrlLesRepresentations implements WindowListener {
         String[] titresColonnes = {"DATE", "HEURE DEBUT", "HEURE FIN"};
         getVue().getModeleTableRepresentation().setColumnIdentifiers(titresColonnes);
         
-        DateFormat DF = new SimpleDateFormat("MM/dd/yyyy");
-        SimpleDateFormat TF = new SimpleDateFormat("HH:mm");
-        
         String[] ligneDonnees = new String[3];
         for (Representation uneRepresentation : desRepresentations) {
-            ligneDonnees[0] = DF.format(uneRepresentation.getDateRep());
-            ligneDonnees[1] = TF.format(uneRepresentation.getHeureDebut());
-            ligneDonnees[2] = TF.format(uneRepresentation.getHeureFin());
+            ligneDonnees[0] = uneRepresentation.getDateRep().toString();
+            ligneDonnees[1] = uneRepresentation.getHeureDebut().toString();
+            ligneDonnees[2] = uneRepresentation.getHeureFin().toString();
             getVue().getModeleTableRepresentation().addRow(ligneDonnees);            
         }       
     }
