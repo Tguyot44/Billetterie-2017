@@ -5,13 +5,13 @@
  */
 package Controller;
 
+import DAO.GroupeDAO;
+import Metier.Groupe;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.sql.SQLException;
 import java.util.List;
 import javax.swing.JOptionPane;
-import DAO.GroupeDAO;
-import Metier.Groupe;
 import View.JFrameMenu;
 
 /**

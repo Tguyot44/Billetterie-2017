@@ -14,14 +14,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class JFrameMenu extends javax.swing.JFrame {
 
-    private DefaultTableModel modeleTableRepresentations;
+    private DefaultTableModel modeleTableRepresentation;
     /**
      * Creates new form JFrameMenu
      */
     public JFrameMenu() {
         initComponents();
-        modeleTableRepresentations = new DefaultTableModel();
-        jTableRepresentations.setModel(modeleTableRepresentations);
+        modeleTableRepresentation = new DefaultTableModel();
+        jTableRepresentation.setModel(modeleTableRepresentation);
     }
 
     /**
@@ -35,13 +35,13 @@ public class JFrameMenu extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableRepresentations = new javax.swing.JTable();
+        jTableRepresentation = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Rechercher");
 
-        jTableRepresentations.setModel(new javax.swing.table.DefaultTableModel(
+        jTableRepresentation.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -61,7 +61,7 @@ public class JFrameMenu extends javax.swing.JFrame {
                 "Nom représentation", "Nombre de places disponibles"
             }
         ));
-        jScrollPane1.setViewportView(jTableRepresentations);
+        jScrollPane1.setViewportView(jTableRepresentation);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,13 +124,13 @@ public class JFrameMenu extends javax.swing.JFrame {
         });
     }
     
-    public DefaultTableModel getModeleTableRepresentations() {
-        return modeleTableRepresentations;
+    public DefaultTableModel getModeleTableRepresentation() {
+        return modeleTableRepresentation;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableRepresentations;
+    private javax.swing.JTable jTableRepresentation;
     // End of variables declaration//GEN-END:variables
 }

@@ -48,9 +48,9 @@ public class CtrlLesRepresentations implements WindowListener {
      * @param desRepresentations liste des adresses à afficher
      */
     private final void afficherLesRepresentations(List<Representation> desRepresentations) {
-        getVue().getModeleTableRepresentations().setRowCount(0);
+        getVue().getModeleTableRepresentation().setRowCount(0);
         String[] titresColonnes = {"DATE", "HEURE DEBUT", "HEURE FIN"};
-        getVue().getModeleTableRepresentations().setColumnIdentifiers(titresColonnes);
+        getVue().getModeleTableRepresentation().setColumnIdentifiers(titresColonnes);
         
         DateFormat DF = new SimpleDateFormat("MM/dd/yyyy");
         SimpleDateFormat TF = new SimpleDateFormat("HH:mm");
@@ -60,7 +60,7 @@ public class CtrlLesRepresentations implements WindowListener {
             ligneDonnees[0] = DF.format(uneRepresentation.getDateRep());
             ligneDonnees[1] = TF.format(uneRepresentation.getHeureDebut());
             ligneDonnees[2] = TF.format(uneRepresentation.getHeureFin());
-            getVue().getModeleTableRepresentations().addRow(ligneDonnees);            
+            getVue().getModeleTableRepresentation().addRow(ligneDonnees);            
         }       
     }
     
