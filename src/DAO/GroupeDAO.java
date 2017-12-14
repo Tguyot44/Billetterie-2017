@@ -31,7 +31,7 @@ public class GroupeDAO  {
         PreparedStatement pstmt;
         Jdbc jdbc = Jdbc.getInstance();
         // préparer la requête
-        String requete = "SELECT * FROM GROUPE WHERE ID= ?";
+        String requete = "SELECT * FROM Groupe WHERE ID= ?";
         pstmt = jdbc.getConnexion().prepareStatement(requete);
         pstmt.setString(1, idGroupe);
         rs = pstmt.executeQuery();
@@ -60,7 +60,7 @@ public class GroupeDAO  {
         PreparedStatement pstmt;
         Jdbc jdbc = Jdbc.getInstance();
         // préparer la requête
-        String requete = "SELECT * FROM GROUPE";
+        String requete = "SELECT * FROM Groupe";
         pstmt = jdbc.getConnexion().prepareStatement(requete);
         rs = pstmt.executeQuery();
         while (rs.next()) {
