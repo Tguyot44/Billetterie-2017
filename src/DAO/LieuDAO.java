@@ -80,7 +80,7 @@ public class LieuDAO  {
         String requete;
         ResultSet rs;
         PreparedStatement pstmt;
-        requete = "UPDATE GROUPE SET ID = ? , NOM = ?,ADR = ? , ADRESSEPOSTALE = ? , CAPACITE = ? ";
+        requete = "UPDATE Lieu SET ID = ? , NOM = ?,ADR = ? , ADRESSEPOSTALE = ? , CAPACITE = ? ";
         pstmt = jdbc.getConnexion().prepareStatement(requete);
         pstmt.setInt(1, idLieu);
         pstmt.setString(2, unLieu.getNomLieu());

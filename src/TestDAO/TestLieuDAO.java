@@ -47,7 +47,6 @@ public class TestLieuDAO{
      */
     public static void test0_Connexion() throws ClassNotFoundException, SQLException {
         Jdbc.creer("com.mysql.jdbc.Driver", "jdbc:mysql://", "localhost/", "festival", "festival", "secret");
-//        Jdbc.creer("oracle.jdbc.driver.OracleDriver", "jdbc:oracle:thin:", "@localhost:1521:XE", "", "btssio", "btssio");
         Jdbc.getInstance().connecter();
         Connection cnx = Jdbc.getInstance().getConnexion();
     }

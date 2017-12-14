@@ -34,6 +34,7 @@ public class Representation {
         this.heureFin = heureFin;
     }
 
+
     @Override
     public String toString() {
         return "Representation{" + "idRep=" + idRep + ", dateRep=" + dateRep + ", lieu=" + lieu + ", groupe=" + groupe + ", heureDebut=" + heureDebut + ", heureFin=" + heureFin + '}';

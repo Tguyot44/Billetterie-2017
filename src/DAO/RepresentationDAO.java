@@ -36,11 +36,11 @@ public class RepresentationDAO  {
         rs = pstmt.executeQuery();
         if (rs.next()) {
             int id = rs.getInt("ID");
-            Date dateRep = rs.getDate("DATE_REP");
+            LocalDate dateRep = rs.getDate("DATE_REP").toLocalDate();
             String leLieu = rs.getString("ID_LIEU");
             String leGroupe = rs.getString("ID_GROUPE");
-            LocalTime heureDebut = rs.getLocalTime("HEUREDEBUT");
-            LocalTime heureFin = rs.getLocalTime("HEUREFIN");
+            LocalTime heureDebut = rs.getTime("HEUREDEBUT").toLocalTime();
+            LocalTime heureFin = rs.getTime("HEUREFIN").toLocalTime();
             
             uneRepresentation = new Representation(id, dateRep, leLieu, leGroupe, heureDebut, heureFin);
         }

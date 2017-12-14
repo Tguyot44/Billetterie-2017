@@ -18,7 +18,7 @@ public class TestGroupeDAO{
         try {
             test0_Connexion();
             System.out.println("Test0 effectué : connexion\n");
-            test1_SelectOne("1");
+            test1_SelectOne("g001");
             System.out.println("Test1 effectué : sélection unique\n");
             test2_SelectAll();
             System.out.println("Test2 effectué : sélection multiple\n");

@@ -70,7 +70,6 @@ public class GroupeDAO  {
             String adresse = rs.getString("ADRESSEPOSTALE");
             int nbPers = rs.getInt("NOMBREPERSONNES");
             String nomPays = rs.getString("NOMPAYS");
-            String hebergement = rs.getString("HEBERGEMENT");
             unGroupe = new Groupe(id, nom, identite, adresse, nbPers, nomPays);
             lesGroupes.add(unGroupe);
         }
@@ -92,7 +91,6 @@ public class GroupeDAO  {
         pstmt.setString(4, unGroupe.getAdresse());
         pstmt.setInt(5, unGroupe.getNbPers());
         pstmt.setString(6, unGroupe.getNomPays());
-        pstmt.setString(7, unGroupe.getHebergement());
         nb = pstmt.executeUpdate();
         return nb;
     }
