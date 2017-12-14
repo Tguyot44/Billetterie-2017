@@ -42,9 +42,8 @@ public class GroupeDAO  {
             String adresse = rs.getString("ADRESSEPOSTALE");
             int nbPers = rs.getInt("NOMBREPERSONNES");
             String nomPays = rs.getString("NOMPAYS");
-            String hebergement = rs.getString("HEBERGEMENT");
             
-            unGroupe = new Groupe(id, nom, identite, adresse, nbPers, nomPays, hebergement);
+            unGroupe = new Groupe(id, nom, identite, adresse, nbPers, nomPays);
         }
         return unGroupe;
     }
@@ -72,7 +71,7 @@ public class GroupeDAO  {
             int nbPers = rs.getInt("NOMBREPERSONNES");
             String nomPays = rs.getString("NOMPAYS");
             String hebergement = rs.getString("HEBERGEMENT");
-            unGroupe = new Groupe(id, nom, identite, adresse, nbPers, nomPays, hebergement);
+            unGroupe = new Groupe(id, nom, identite, adresse, nbPers, nomPays);
             lesGroupes.add(unGroupe);
         }
         return lesGroupes;
@@ -85,7 +84,7 @@ public class GroupeDAO  {
         String requete;
         ResultSet rs;
         PreparedStatement pstmt;
-        requete = "UPDATE GROUPE SET ID = ? , NOM = ?,IDENTITERESPONSABLE = ? , ADRESSEPOSTALE = ? , NOMBREPERSONNES = ? , NOMPAYS = ? , HEBERGEMENT = ? ";
+        requete = "UPDATE GROUPE SET ID = ? , NOM = ?,IDENTITERESPONSABLE = ? , ADRESSEPOSTALE = ? , NOMBREPERSONNES = ? , NOMPAYS = ? ";
         pstmt = jdbc.getConnexion().prepareStatement(requete);
         pstmt.setString(1, idGroupe);
         pstmt.setString(2, unGroupe.getNomGroup());

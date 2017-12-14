@@ -5,7 +5,11 @@
  */
 package Metier;
 
-import java.util.Date;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -15,27 +19,26 @@ import java.util.Date;
 public class Representation {
     
     private int idRep;
-    private Date dateRep;
-    private String leLieu;
-    private String leGroupe;
-    private String heureDebut;
-    private String heureFin;
-    
-    public Representation(int idRep, Date dateRep, String leLieu, String leGroupe, String heureDebut, String heureFin) {
+    private LocalDate dateRep;
+    private Lieu lieu;
+    private Groupe groupe;
+    private LocalTime heureDebut;
+    private LocalTime heureFin;
+
+    public Representation(int idRep, LocalDate dateRep, Lieu lieu, Groupe groupe, LocalTime heureDebut, LocalTime heureFin) {
         this.idRep = idRep;
         this.dateRep = dateRep;
-        this.leLieu = leLieu;
-        this.leGroupe = leGroupe;
+        this.lieu = lieu;
+        this.groupe = groupe;
         this.heureDebut = heureDebut;
         this.heureFin = heureFin;
-
     }
 
     @Override
     public String toString() {
-        return "Representation{" + "id=" + idRep + ", date=" + dateRep + ", lieu=" + leLieu + ", groupe=" + leGroupe + ", heure_debut=" + heureDebut + ", heure_fin=" + heureFin + '}';
+        return "Representation{" + "idRep=" + idRep + ", dateRep=" + dateRep + ", lieu=" + lieu + ", groupe=" + groupe + ", heureDebut=" + heureDebut + ", heureFin=" + heureFin + '}';
     }
-
+    
     public int getIdRep() {
         return idRep;
     }
@@ -44,44 +47,45 @@ public class Representation {
         this.idRep = idRep;
     }
 
-    public Date getDateRep() {
+    public LocalDate getDateRep() {
         return dateRep;
     }
 
-    public void setDateRep(Date dateRep) {
+    public void setDateRep(LocalDate dateRep) {
         this.dateRep = dateRep;
     }
 
-    public String getLeLieu() {
-        return leLieu;
+    public Lieu getLieu() {
+        return lieu;
     }
 
-    public void setLeLieu(String leLieu) {
-        this.leLieu = leLieu;
+    public void setLieu(Lieu lieu) {
+        this.lieu = lieu;
     }
 
-    public String getLeGroupe() {
-        return leGroupe;
+    public Groupe getGroupe() {
+        return groupe;
     }
 
-    public void setLeGroupe(String leGroupe) {
-        this.leGroupe = leGroupe;
+    public void setGroupe(Groupe groupe) {
+        this.groupe = groupe;
     }
 
-    public String getHeureDebut() {
+    public LocalTime getHeureDebut() {
         return heureDebut;
     }
 
-    public void setHeureDebut(String heureDebut) {
+    public void setHeureDebut(LocalTime heureDebut) {
         this.heureDebut = heureDebut;
     }
 
-    public String getHeureFin() {
+    public LocalTime getHeureFin() {
         return heureFin;
     }
 
-    public void setHeureFin(String heureFin) {
+    public void setHeureFin(LocalTime heureFin) {
         this.heureFin = heureFin;
     }
+  
     
 }

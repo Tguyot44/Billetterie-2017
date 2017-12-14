@@ -5,7 +5,6 @@ import java.util.List;
 import DAO.GroupeDAO;
 import DAO.Jdbc;
 import Metier.Groupe;
-
 /**
  *
  * @author btssio
@@ -23,8 +22,6 @@ public class TestGroupeDAO{
             System.out.println("Test1 effectué : sélection unique\n");
             test2_SelectAll();
             System.out.println("Test2 effectué : sélection multiple\n");
-            test3_Update("99");
-            System.out.println("Test3 effectué : mise à jour\n");
 
         } catch (ClassNotFoundException e) {
             System.err.println("Erreur de pilote JDBC : " + e);
@@ -48,7 +45,7 @@ public class TestGroupeDAO{
      * @throws SQLException
      */
     public static void test0_Connexion() throws ClassNotFoundException, SQLException {
-        Jdbc.creer("com.mysql.jdbc.Driver", "jdbc:mysql://", "localhost/", "AGENCEB", "agenceb_util", "secret");
+        Jdbc.creer("com.mysql.jdbc.Driver", "jdbc:mysql://", "localhost/", "festival", "festival", "secret");
 //        Jdbc.creer("oracle.jdbc.driver.OracleDriver", "jdbc:oracle:thin:", "@localhost:1521:XE", "", "btssio", "btssio");
         Jdbc.getInstance().connecter();
         Connection cnx = Jdbc.getInstance().getConnexion();
@@ -56,31 +53,21 @@ public class TestGroupeDAO{
 
     /**
      * Affiche une groupe d'après son identifiant
+     * @param idGroup
      * @throws SQLException
      */
-    public static void test1_SelectOne(String idGroupe) throws SQLException {
-        Groupe cetteGroupe = GroupeDAO.selectOne(idGroupe);
-        System.out.println("Groupe d'identifiant : "+idGroupe+" : "+cetteGroupe.toString());
+    public static void test1_SelectOne(String idGroup) throws SQLException {
+        Groupe ceGroupe = GroupeDAO.selectOne(idGroup);
+        System.out.println("Groupe d'identifiant : "+idGroup+" : "+ceGroupe.toString());
     }
 
     /**
-     * Affiche toutes les villes
+     * Affiche tous les groupes
      * @throws SQLException
      */
     public static void test2_SelectAll() throws SQLException {
         List<Groupe> desGroupes = GroupeDAO.selectAll();
-        System.out.println("Les groupes lues : "+desGroupes.toString());
-    }
-
-    /**
-     * Modifie une groupe
-     * @throws SQLException
-     */
-    public static void test3_Update(String idGroupe) throws SQLException {
-         Groupe unGroupe = new Groupe("1","les Joyeux Turlurons","général Alcazar","Tapiocapolis" ,25,"San Theodoros","N");
-        int nb= GroupeDAO.update(idGroupe, unGroupe);
-        System.out.println("Une groupe a été modifiée: "+nb);
-        test1_SelectOne(idGroupe);
+        System.out.println("Les groupes lus : "+desGroupes.toString());
     }
 
 }

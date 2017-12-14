@@ -6,7 +6,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import Metier.Representation;
 import java.sql.Date;
+import java.sql.Time;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 /**
@@ -37,8 +39,8 @@ public class RepresentationDAO  {
             Date dateRep = rs.getDate("DATE_REP");
             String leLieu = rs.getString("ID_LIEU");
             String leGroupe = rs.getString("ID_GROUPE");
-            String heureDebut = rs.getString("HEUREDEBUT");
-            String heureFin = rs.getString("HEUREFIN");
+            LocalTime heureDebut = rs.getLocalTime("HEUREDEBUT");
+            LocalTime heureFin = rs.getLocalTime("HEUREFIN");
             
             uneRepresentation = new Representation(id, dateRep, leLieu, leGroupe, heureDebut, heureFin);
         }
@@ -65,13 +67,17 @@ public class RepresentationDAO  {
             Date dateRep = rs.getDate("DATE_REP");
             String leLieu = rs.getString("ID_LIEU");
             String leGroupe = rs.getString("ID_GROUPE");
-            String heureDebut = rs.getString("HEUREDEBUT");
-            String heureFin = rs.getString("HEUREFIN");
+            LocalTime heureDebut = rs.getLocalTime("HEUREDEBUT");
+            LocalTime heureFin = rs.getLocalTime("HEUREFIN");
             
             uneRepresentation = new Representation(id, dateRep, leLieu, leGroupe, heureDebut, heureFin);
             lesRepresentations.add(uneRepresentation);
         }
         return lesRepresentations;
+    }
+
+    public static Representation selectOne(int idRep) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 

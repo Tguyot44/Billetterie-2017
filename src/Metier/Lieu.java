@@ -15,19 +15,17 @@ public class Lieu {
     private String nomLieu;
     private String adresseLieu;
     private int capaciteAccueil;
-    
-    
-     public Lieu(int idLieu, String nomLieu, String adresseLieu, int capaciteAccueil) {
+
+    public Lieu(int idLieu, String nomLieu, String adresseLieu, int capaciteAccueil) {
         this.idLieu = idLieu;
         this.nomLieu = nomLieu;
         this.adresseLieu = adresseLieu;
         this.capaciteAccueil = capaciteAccueil;
-
     }
 
     @Override
     public String toString() {
-        return "Lieu{" + "id=" + idLieu + ", nom=" + nomLieu + ", adresse=" + adresseLieu + ", capaciteAccueil=" + capaciteAccueil + '}';
+        return "Lieu{" + "idLieu=" + idLieu + ", nomLieu=" + nomLieu + ", adresseLieu=" + adresseLieu + ", capaciteAccueil=" + capaciteAccueil + '}';
     }
 
     public int getIdLieu() {
@@ -61,5 +59,7 @@ public class Lieu {
     public void setCapaciteAccueil(int capaciteAccueil) {
         this.capaciteAccueil = capaciteAccueil;
     }
+    
+    
     
 }
