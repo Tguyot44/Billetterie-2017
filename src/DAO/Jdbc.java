@@ -5,7 +5,7 @@ import java.sql.*;
 /**
  * Singleton fournit un objet de connexion JDBC
  *
- * @author nbourgeois
+ * @author btssio
  * @version 2 22 novembre 2013
  */
 public class Jdbc {
