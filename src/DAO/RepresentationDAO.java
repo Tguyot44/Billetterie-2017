@@ -10,6 +10,10 @@ import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import Metier.Lieu;
+import Metier.Groupe;
+import DAO.LieuDAO;
+import DAO.GroupeDAO;
 
 /**
  *
@@ -30,7 +34,7 @@ public class RepresentationDAO  {
         PreparedStatement pstmt;
         Jdbc jdbc = Jdbc.getInstance();
         // préparer la requête
-        String requete = "SELECT * FROM GROUPE WHERE ID= ?";
+        String requete = "SELECT * FROM Representation WHERE ID= ?";
         pstmt = jdbc.getConnexion().prepareStatement(requete);
         pstmt.setString(1, idRepresentation);
         rs = pstmt.executeQuery();
@@ -38,11 +42,14 @@ public class RepresentationDAO  {
             int id = rs.getInt("ID");
             LocalDate dateRep = rs.getDate("DATE_REP").toLocalDate();
             String leLieu = rs.getString("ID_LIEU");
+            int idlieu = Integer.parseInt(leLieu);
+            Lieu lieu = LieuDAO.selectOne(idlieu);
             String leGroupe = rs.getString("ID_GROUPE");
+            Groupe groupe = GroupeDAO.selectOne(leGroupe);
             LocalTime heureDebut = rs.getTime("HEUREDEBUT").toLocalTime();
             LocalTime heureFin = rs.getTime("HEUREFIN").toLocalTime();
             
-            uneRepresentation = new Representation(id, dateRep, leLieu, leGroupe, heureDebut, heureFin);
+            uneRepresentation = new Representation(id, dateRep, lieu, groupe, heureDebut, heureFin);
         }
         return uneRepresentation;
     }
@@ -59,18 +66,21 @@ public class RepresentationDAO  {
         PreparedStatement pstmt;
         Jdbc jdbc = Jdbc.getInstance();
         // préparer la requête
-        String requete = "SELECT * FROM REPRESENTATION";
+        String requete = "SELECT * FROM Representation";
         pstmt = jdbc.getConnexion().prepareStatement(requete);
         rs = pstmt.executeQuery();
         while (rs.next()) {
             int id = rs.getInt("ID");
-            Date dateRep = rs.getDate("DATE_REP");
+            LocalDate dateRep = rs.getDate("DATE_REP").toLocalDate();
             String leLieu = rs.getString("ID_LIEU");
+            int idlieu = Integer.parseInt(leLieu);
+            Lieu lieu = LieuDAO.selectOne(idlieu);
             String leGroupe = rs.getString("ID_GROUPE");
-            LocalTime heureDebut = rs.getLocalTime("HEUREDEBUT");
-            LocalTime heureFin = rs.getLocalTime("HEUREFIN");
+            Groupe groupe = GroupeDAO.selectOne(leGroupe);
+            LocalTime heureDebut = rs.getTime("HEUREDEBUT").toLocalTime();
+            LocalTime heureFin = rs.getTime("HEUREFIN").toLocalTime();
             
-            uneRepresentation = new Representation(id, dateRep, leLieu, leGroupe, heureDebut, heureFin);
+            uneRepresentation = new Representation(id, dateRep, lieu, groupe, heureDebut, heureFin);
             lesRepresentations.add(uneRepresentation);
         }
         return lesRepresentations;

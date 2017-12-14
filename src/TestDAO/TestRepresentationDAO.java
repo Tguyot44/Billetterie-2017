@@ -19,7 +19,7 @@ public class TestRepresentationDAO{
         try {
             test0_Connexion();
             System.out.println("Test0 effectué : connexion\n");
-            test1_SelectOne(1);
+            test1_SelectOne("1");
             System.out.println("Test1 effectué : sélection unique\n");
             test2_SelectAll();
             System.out.println("Test2 effectué : sélection multiple\n");
@@ -57,9 +57,9 @@ public class TestRepresentationDAO{
      * @param idRep
      * @throws SQLException
      */
-    public static void test1_SelectOne(int idRep) throws SQLException {
+    public static void test1_SelectOne(String idRep) throws SQLException {
         Representation cetteRepresentation = RepresentationDAO.selectOne(idRep);
-        System.out.println("Representation d'identifiant : "+idRep+" : "+cetteRepresentation.toString());
+        System.out.println("Representation d'identifiant : "+idRep.toString()+" : "+cetteRepresentation.toString());
     }
 
     /**
