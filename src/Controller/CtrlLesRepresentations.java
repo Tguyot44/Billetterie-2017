@@ -47,14 +47,16 @@ public class CtrlLesRepresentations implements WindowListener {
      */
     private final void afficherLesRepresentations(List<Representation> desRepresentations) {
         getVue().getModeleTableRepresentation().setRowCount(0);
-        String[] titresColonnes = {"DATE", "HEURE DEBUT", "HEURE FIN"};
+        String[] titresColonnes = {"DATE", "GROUPE", "LIEU", "DEBUT", "FIN"};
         getVue().getModeleTableRepresentation().setColumnIdentifiers(titresColonnes);
         
-        String[] ligneDonnees = new String[3];
+        String[] ligneDonnees = new String[5];
         for (Representation uneRepresentation : desRepresentations) {
             ligneDonnees[0] = uneRepresentation.getDateRep().toString();
-            ligneDonnees[1] = uneRepresentation.getHeureDebut().toString();
-            ligneDonnees[2] = uneRepresentation.getHeureFin().toString();
+            ligneDonnees[1] = uneRepresentation.getGroupe().getNomGroup();
+            ligneDonnees[2] = uneRepresentation.getLieu().getNomLieu();
+            ligneDonnees[3] = uneRepresentation.getHeureDebut().toString();
+            ligneDonnees[4] = uneRepresentation.getHeureFin().toString();
             getVue().getModeleTableRepresentation().addRow(ligneDonnees);            
         }       
     }

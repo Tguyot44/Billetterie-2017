@@ -60,7 +60,15 @@ public class JFrameMenu extends javax.swing.JFrame {
             new String [] {
                 "Nom représentation", "Nombre de places disponibles"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTableRepresentation);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
