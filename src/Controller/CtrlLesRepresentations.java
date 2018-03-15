@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import DAO.RepresentationDAO;
 import Metier.Representation;
 import View.JFrameMenu;
+import View.JFrameReservation;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -120,11 +121,10 @@ public class CtrlLesRepresentations implements WindowListener, MouseListener {
     public void mouseClicked(MouseEvent e) {
         int row = vue.getjTableRepresentation().getSelectedRow();
         String groupeChoisis = (String) vue.getjTableRepresentation().getValueAt(row, 1);
-        String lieuChoisis = (String) vue.getjTableRepresentation().getValueAt(row, 2);
         String nbPlace = (String) vue.getjTableRepresentation().getValueAt(row, 5);
-        int dialogResult = JOptionPane.showConfirmDialog (vue, "Il reste " + nbPlace + " places \nVoulez vous des places pour la représentation "+ groupeChoisis);
+        int dialogResult = JOptionPane.showConfirmDialog (vue, "Il reste " + nbPlace + " places pour la représentation " + groupeChoisis + "\nVoulez vous des places ?");
         if(dialogResult == JOptionPane.YES_OPTION){
-          // Saving code here
+            new JFrameReservation().setVisible(true);
         }
     }
 
