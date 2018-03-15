@@ -48,6 +48,7 @@ public class RepresentationDAO  {
             Groupe groupe = GroupeDAO.selectOne(leGroupe);
             LocalTime heureDebut = rs.getTime("HEUREDEBUT").toLocalTime();
             LocalTime heureFin = rs.getTime("HEUREFIN").toLocalTime();
+            int nbPlace = rs.getInt("NBPLACE");
             
             uneRepresentation = new Representation(id, dateRep, lieu, groupe, heureDebut, heureFin, nbPlace);
         }
@@ -79,8 +80,9 @@ public class RepresentationDAO  {
             Groupe groupe = GroupeDAO.selectOne(leGroupe);
             LocalTime heureDebut = rs.getTime("HEUREDEBUT").toLocalTime();
             LocalTime heureFin = rs.getTime("HEUREFIN").toLocalTime();
+            int nbPlace = rs.getInt("NBPLACE");
             
-            uneRepresentation = new Representation(id, dateRep, lieu, groupe, heureDebut, heureFin);
+            uneRepresentation = new Representation(id, dateRep, lieu, groupe, heureDebut, heureFin, nbPlace);
             lesRepresentations.add(uneRepresentation);
         }
         return lesRepresentations;

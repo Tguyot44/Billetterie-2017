@@ -50,16 +50,18 @@ public class CtrlLesRepresentations implements WindowListener, MouseListener {
      */
     private final void afficherLesRepresentations(List<Representation> desRepresentations) {
         getVue().getModeleTableRepresentation().setRowCount(0);
-        String[] titresColonnes = {"DATE", "GROUPE", "LIEU", "DEBUT", "FIN"};
+        String[] titresColonnes = {"DATE", "GROUPE", "LIEU", "DEBUT", "FIN", "PLACE"};
         getVue().getModeleTableRepresentation().setColumnIdentifiers(titresColonnes);
         
-        String[] ligneDonnees = new String[5];
+        String[] ligneDonnees = new String[6];
+        
         for (Representation uneRepresentation : desRepresentations) {
             ligneDonnees[0] = uneRepresentation.getDateRep().toString();
             ligneDonnees[1] = uneRepresentation.getGroupe().getNomGroup();
             ligneDonnees[2] = uneRepresentation.getLieu().getNomLieu();
             ligneDonnees[3] = uneRepresentation.getHeureDebut().toString();
             ligneDonnees[4] = uneRepresentation.getHeureFin().toString();
+            ligneDonnees[5] = uneRepresentation.getNbPlace()+"";
             getVue().getModeleTableRepresentation().addRow(ligneDonnees);            
         }       
     }
@@ -119,11 +121,11 @@ public class CtrlLesRepresentations implements WindowListener, MouseListener {
         int row = vue.getjTableRepresentation().getSelectedRow();
         String groupeChoisis = (String) vue.getjTableRepresentation().getValueAt(row, 1);
         String lieuChoisis = (String) vue.getjTableRepresentation().getValueAt(row, 2);
-        int dialogResult = JOptionPane.showConfirmDialog (vue, "Voulez vous des place de la représentation "+ groupeChoisis);
+        String nbPlace = (String) vue.getjTableRepresentation().getValueAt(row, 5);
+        int dialogResult = JOptionPane.showConfirmDialog (vue, "Il reste " + nbPlace + " places \nVoulez vous des places pour la représentation "+ groupeChoisis);
         if(dialogResult == JOptionPane.YES_OPTION){
           // Saving code here
         }
-        System.out.println("test");
     }
 
     @Override

@@ -33,10 +33,11 @@ public class TestRepresentation {
         LocalDate dateRep = LocalDate.parse("2017-12-07");
         LocalTime heureDebut = LocalTime.parse("21:00");
         LocalTime heureFin = LocalTime.parse("23:30");
+        int nbPlace = 100;
         
         // Test n°1 : instanciation et accesseurs
         System.out.println("\nTest n°1 : instanciation et accesseurs");
-        rep = new Representation(1, dateRep, lieuTest, groupeTest, heureDebut, heureFin);
+        rep = new Representation(1, dateRep, lieuTest, groupeTest, heureDebut, heureFin, nbPlace);
         System.out.println("Etat de la representation : " + rep);
         
         // Test n°2 : mutateurs
