@@ -75,19 +75,19 @@ public class JFrameReservation extends javax.swing.JFrame {
 
         jLabelNbPlaceSouhaite.setText("Nombre de place souhaités:");
 
-        jTextFieldGroupe.setText("jTextField1");
+        jTextFieldGroupe.setEnabled(false);
 
-        jTextFieldLieu.setText("jTextField1");
+        jTextFieldLieu.setEnabled(false);
 
-        jTextFieldDate.setText("jTextField1");
+        jTextFieldDate.setEnabled(false);
 
-        jTextFieldNbPlaceTotal.setText("jTextField1");
+        jTextFieldNbPlaceTotal.setEnabled(false);
 
-        jTextFieldHeureFin.setText("jTextField1");
+        jTextFieldHeureFin.setEnabled(false);
 
-        jTextFieldHeureDebut.setText("jTextField1");
+        jTextFieldHeureDebut.setEnabled(false);
 
-        jTextFieldNbPlaceDispo.setText("jTextField1");
+        jTextFieldNbPlaceDispo.setEnabled(false);
 
         jLabelTitre.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabelTitre.setText("REPRESENTATION:");
