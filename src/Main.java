@@ -33,7 +33,5 @@ public class Main {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Main - échec de connexion");
         }
-
     }
-
 }
