@@ -49,7 +49,7 @@ public class RepresentationDAO  {
             LocalTime heureDebut = rs.getTime("HEUREDEBUT").toLocalTime();
             LocalTime heureFin = rs.getTime("HEUREFIN").toLocalTime();
             
-            uneRepresentation = new Representation(id, dateRep, lieu, groupe, heureDebut, heureFin);
+            uneRepresentation = new Representation(id, dateRep, lieu, groupe, heureDebut, heureFin, nbPlace);
         }
         return uneRepresentation;
     }

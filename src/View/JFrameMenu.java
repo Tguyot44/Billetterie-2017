@@ -6,6 +6,7 @@
 package View;
 
 import Metier.Representation;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -135,6 +136,15 @@ public class JFrameMenu extends javax.swing.JFrame {
     public DefaultTableModel getModeleTableRepresentation() {
         return modeleTableRepresentation;
     }
+
+    public JTable getjTableRepresentation() {
+        return jTableRepresentation;
+    }
+
+    public void setjTableRepresentation(JTable jTableRepresentation) {
+        this.jTableRepresentation = jTableRepresentation;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

@@ -24,20 +24,22 @@ public class Representation {
     private Groupe groupe;
     private LocalTime heureDebut;
     private LocalTime heureFin;
+    private int nbPlace;
 
-    public Representation(int idRep, LocalDate dateRep, Lieu lieu, Groupe groupe, LocalTime heureDebut, LocalTime heureFin) {
+    public Representation(int idRep, LocalDate dateRep, Lieu lieu, Groupe groupe, LocalTime heureDebut, LocalTime heureFin, int nbPlace) {
         this.idRep = idRep;
         this.dateRep = dateRep;
         this.lieu = lieu;
         this.groupe = groupe;
         this.heureDebut = heureDebut;
         this.heureFin = heureFin;
+        this.nbPlace = nbPlace;
     }
 
 
     @Override
     public String toString() {
-        return "Representation{" + "idRep=" + idRep + ", dateRep=" + dateRep + ", lieu=" + lieu + ", groupe=" + groupe + ", heureDebut=" + heureDebut + ", heureFin=" + heureFin + '}';
+        return "Representation{" + "idRep=" + idRep + ", dateRep=" + dateRep + ", lieu=" + lieu + ", groupe=" + groupe + ", heureDebut=" + heureDebut + ", heureFin=" + heureFin + ", nbPlace=" + nbPlace +'}';
     }
     
     public int getIdRep() {
@@ -87,6 +89,13 @@ public class Representation {
     public void setHeureFin(LocalTime heureFin) {
         this.heureFin = heureFin;
     }
-  
+
+    public int getNbPlace() {
+        return nbPlace;
+    }
+
+    public void setNbPlace(int nbPlace) {
+        this.nbPlace = nbPlace;
+    }
     
 }

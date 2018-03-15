@@ -13,13 +13,15 @@ import javax.swing.JOptionPane;
 import DAO.RepresentationDAO;
 import Metier.Representation;
 import View.JFrameMenu;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 /**
  *
  * @author qbaudry
  */
 
-public class CtrlLesRepresentations implements WindowListener {
+public class CtrlLesRepresentations implements WindowListener, MouseListener {
     
      private JFrameMenu vue; // LA VUE
      
@@ -28,6 +30,7 @@ public class CtrlLesRepresentations implements WindowListener {
         this.vue = vue;
         // le contrôleur écoute la vue
         this.vue.addWindowListener(this);
+        this.vue.getjTableRepresentation().addMouseListener(this);
         // préparer l'état initial de la vue
         List<Representation> lesRepresentations = null;
         try {
@@ -66,7 +69,7 @@ public class CtrlLesRepresentations implements WindowListener {
      */
     private void quitter() {
         // Confirmer avant de quitter
-        int rep = JOptionPane.showConfirmDialog(getVue(), "Quitter l'application\nEtes-vous sûr(e) ?", "AGENCEB", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int rep = JOptionPane.showConfirmDialog(getVue(), "Quitter l'application\nEtes-vous sûr(e) ?", "festival", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (rep == JOptionPane.YES_OPTION) {
             // mettre fin à l'application
             System.exit(0);
@@ -110,5 +113,33 @@ public class CtrlLesRepresentations implements WindowListener {
     @Override
     public void windowDeactivated(WindowEvent e) {
         }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        int row = vue.getjTableRepresentation().getSelectedRow();
+        String groupeChoisis = (String) vue.getjTableRepresentation().getValueAt(row, 1);
+        String lieuChoisis = (String) vue.getjTableRepresentation().getValueAt(row, 2);
+        int dialogResult = JOptionPane.showConfirmDialog (vue, "Voulez vous des place de la représentation "+ groupeChoisis);
+        if(dialogResult == JOptionPane.YES_OPTION){
+          // Saving code here
+        }
+        System.out.println("test");
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+    }
 
 }
