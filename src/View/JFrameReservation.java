@@ -5,6 +5,8 @@
  */
 package View;
 
+import Metier.Representation;
+
 /**
  *
  * @author ttnguyen
@@ -27,81 +29,151 @@ public class JFrameReservation extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelNbPlaces = new javax.swing.JLabel();
-        jTextFieldNbPlacesDispo = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        jLabelNbPlaceTotal = new javax.swing.JLabel();
+        jLabelNbPlaceDispo = new javax.swing.JLabel();
+        jComboBoxNbPlaceSouhaite = new javax.swing.JComboBox<>();
+        jButtonReserver = new javax.swing.JButton();
+        jLabelHeureFin = new javax.swing.JLabel();
+        jLabelHeureDebut = new javax.swing.JLabel();
+        jLabelGroupe = new javax.swing.JLabel();
+        jLabelDate = new javax.swing.JLabel();
+        jLabelLieu = new javax.swing.JLabel();
+        jLabelNbPlaceSouhaite = new javax.swing.JLabel();
+        jTextFieldGroupe = new javax.swing.JTextField();
+        jTextFieldLieu = new javax.swing.JTextField();
+        jTextFieldDate = new javax.swing.JTextField();
+        jTextFieldNbPlaceTotal = new javax.swing.JTextField();
+        jTextFieldHeureFin = new javax.swing.JTextField();
+        jTextFieldHeureDebut = new javax.swing.JTextField();
+        jTextFieldNbPlaceDispo = new javax.swing.JTextField();
+        jLabelTitre = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabelNbPlaces.setText("Nombre de places disponibles :");
+        jLabelNbPlaceTotal.setText("Nombre de place total:");
 
-        jTextFieldNbPlacesDispo.setText("1000");
-        jTextFieldNbPlacesDispo.addActionListener(new java.awt.event.ActionListener() {
+        jLabelNbPlaceDispo.setText("Nombre de place disponible:");
+
+        jComboBoxNbPlaceSouhaite.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxNbPlaceSouhaite.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNbPlacesDispoActionPerformed(evt);
+                jComboBoxNbPlaceSouhaiteActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Nombre de places souhaitées");
+        jButtonReserver.setText("Réserver");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
+        jLabelHeureFin.setText("Heure de fin:");
 
-        jButton1.setText("Réserver");
+        jLabelHeureDebut.setText("Heure de début:");
+
+        jLabelGroupe.setText("Groupe:");
+
+        jLabelDate.setText("Date:");
+
+        jLabelLieu.setText("Lieu:");
+
+        jLabelNbPlaceSouhaite.setText("Nombre de place souhaités:");
+
+        jTextFieldGroupe.setText("jTextField1");
+
+        jTextFieldLieu.setText("jTextField1");
+
+        jTextFieldDate.setText("jTextField1");
+
+        jTextFieldNbPlaceTotal.setText("jTextField1");
+
+        jTextFieldHeureFin.setText("jTextField1");
+
+        jTextFieldHeureDebut.setText("jTextField1");
+
+        jTextFieldNbPlaceDispo.setText("jTextField1");
+
+        jLabelTitre.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabelTitre.setText("REPRESENTATION:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(38, 38, 38)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(183, 183, 183)
+                        .addComponent(jLabelTitre))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelNbPlaces)
-                        .addGap(40, 40, 40)
-                        .addComponent(jTextFieldNbPlacesDispo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(60, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(49, 49, 49))
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelNbPlaceTotal)
+                            .addComponent(jLabelHeureFin)
+                            .addComponent(jLabelNbPlaceDispo)
+                            .addComponent(jLabelHeureDebut)
+                            .addComponent(jLabelLieu)
+                            .addComponent(jLabelDate)
+                            .addComponent(jLabelGroupe)
+                            .addComponent(jLabelNbPlaceSouhaite))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldLieu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldGroupe, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldHeureDebut, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextFieldHeureFin)
+                                .addComponent(jTextFieldNbPlaceTotal)
+                                .addComponent(jTextFieldNbPlaceDispo, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jComboBoxNbPlaceSouhaite, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jButtonReserver, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(27, 27, 27)
+                .addComponent(jLabelTitre)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNbPlaces)
-                    .addComponent(jTextFieldNbPlacesDispo, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                    .addComponent(jTextFieldGroupe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelGroupe))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(76, 76, 76)
-                .addComponent(jButton1)
-                .addContainerGap(97, Short.MAX_VALUE))
+                    .addComponent(jTextFieldLieu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelLieu))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelDate))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldHeureDebut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelHeureDebut))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldHeureFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelHeureFin))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldNbPlaceTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNbPlaceTotal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldNbPlaceDispo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNbPlaceDispo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxNbPlaceSouhaite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNbPlaceSouhaite))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonReserver)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldNbPlacesDispoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNbPlacesDispoActionPerformed
+    private void jComboBoxNbPlaceSouhaiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxNbPlaceSouhaiteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNbPlacesDispoActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_jComboBoxNbPlaceSouhaiteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,10 +211,23 @@ public class JFrameReservation extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabelNbPlaces;
-    private javax.swing.JTextField jTextFieldNbPlacesDispo;
+    private javax.swing.JButton jButtonReserver;
+    private javax.swing.JComboBox<String> jComboBoxNbPlaceSouhaite;
+    private javax.swing.JLabel jLabelDate;
+    private javax.swing.JLabel jLabelGroupe;
+    private javax.swing.JLabel jLabelHeureDebut;
+    private javax.swing.JLabel jLabelHeureFin;
+    private javax.swing.JLabel jLabelLieu;
+    private javax.swing.JLabel jLabelNbPlaceDispo;
+    private javax.swing.JLabel jLabelNbPlaceSouhaite;
+    private javax.swing.JLabel jLabelNbPlaceTotal;
+    private javax.swing.JLabel jLabelTitre;
+    private javax.swing.JTextField jTextFieldDate;
+    private javax.swing.JTextField jTextFieldGroupe;
+    private javax.swing.JTextField jTextFieldHeureDebut;
+    private javax.swing.JTextField jTextFieldHeureFin;
+    private javax.swing.JTextField jTextFieldLieu;
+    private javax.swing.JTextField jTextFieldNbPlaceDispo;
+    private javax.swing.JTextField jTextFieldNbPlaceTotal;
     // End of variables declaration//GEN-END:variables
 }

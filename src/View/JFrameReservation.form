@@ -23,69 +23,108 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
+                      <Component id="jLabelTitre" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="jLabelNbPlaces" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="jTextFieldNbPlacesDispo" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelNbPlaceTotal" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelHeureFin" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelNbPlaceDispo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelHeureDebut" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelLieu" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelDate" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelGroupe" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelNbPlaceSouhaite" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jTextFieldLieu" alignment="1" min="-2" pref="361" max="-2" attributes="0"/>
+                          <Component id="jTextFieldDate" alignment="1" min="-2" pref="361" max="-2" attributes="0"/>
+                          <Component id="jTextFieldGroupe" alignment="0" min="-2" pref="361" max="-2" attributes="0"/>
+                          <Component id="jTextFieldHeureDebut" alignment="0" min="-2" pref="361" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jTextFieldHeureFin" max="32767" attributes="0"/>
+                              <Component id="jTextFieldNbPlaceTotal" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldNbPlaceDispo" alignment="0" min="-2" pref="361" max="-2" attributes="0"/>
+                              <Component id="jComboBoxNbPlaceSouhaite" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="jButtonReserver" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="60" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+              <EmptySpace pref="20" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Component id="jLabelTitre" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabelNbPlaces" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldNbPlacesDispo" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
+                  <Component id="jTextFieldGroupe" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelGroupe" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldLieu" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelLieu" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="97" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jTextFieldDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelDate" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jTextFieldHeureDebut" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelHeureDebut" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jTextFieldHeureFin" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelHeureFin" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jTextFieldNbPlaceTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelNbPlaceTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jTextFieldNbPlaceDispo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelNbPlaceDispo" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jComboBoxNbPlaceSouhaite" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelNbPlaceSouhaite" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jButtonReserver" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabelNbPlaces">
+    <Component class="javax.swing.JLabel" name="jLabelNbPlaceTotal">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre de places disponibles :"/>
+        <Property name="text" type="java.lang.String" value="Nombre de place total:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldNbPlacesDispo">
+    <Component class="javax.swing.JLabel" name="jLabelNbPlaceDispo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="1000"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNbPlacesDispoActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre de places souhait&#xe9;es"/>
+        <Property name="text" type="java.lang.String" value="Nombre de place disponible:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="jComboBoxNbPlaceSouhaite">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -97,15 +136,88 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxNbPlaceSouhaiteActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="jButtonReserver">
       <Properties>
         <Property name="text" type="java.lang.String" value="R&#xe9;server"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelHeureFin">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Heure de fin:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelHeureDebut">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Heure de d&#xe9;but:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelGroupe">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Groupe:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelDate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Date:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelLieu">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Lieu:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelNbPlaceSouhaite">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nombre de place souhait&#xe9;s:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldGroupe">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldLieu">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldDate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldNbPlaceTotal">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldHeureFin">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldHeureDebut">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldNbPlaceDispo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelTitre">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="24" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="REPRESENTATION:"/>
       </Properties>
     </Component>
   </SubComponents>
