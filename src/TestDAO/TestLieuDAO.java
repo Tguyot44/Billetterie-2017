@@ -5,6 +5,7 @@ import java.util.List;
 import DAO.LieuDAO;
 import DAO.Jdbc;
 import Metier.Lieu;
+import Properties.Reader;
 
 /**
  *
@@ -46,7 +47,7 @@ public class TestLieuDAO{
      * @throws SQLException
      */
     public static void test0_Connexion() throws ClassNotFoundException, SQLException {
-        Jdbc.creer("com.mysql.jdbc.Driver", "jdbc:mysql://", "localhost/", "festival", "festival", "secret");
+        Jdbc.creer("com.mysql.jdbc.Driver", "jdbc:mysql://", "localhost/", Reader.readString("database"), Reader.readString("login"), Reader.readString("mdp"));
         Jdbc.getInstance().connecter();
         Connection cnx = Jdbc.getInstance().getConnexion();
     }

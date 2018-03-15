@@ -5,6 +5,7 @@ import java.util.List;
 import DAO.GroupeDAO;
 import DAO.Jdbc;
 import Metier.Groupe;
+import Properties.Reader;
 /**
  *
  * @author btssio
@@ -45,7 +46,7 @@ public class TestGroupeDAO{
      * @throws SQLException
      */
     public static void test0_Connexion() throws ClassNotFoundException, SQLException {
-        Jdbc.creer("com.mysql.jdbc.Driver", "jdbc:mysql://", "localhost/", "festival", "festival", "secret");
+        Jdbc.creer("com.mysql.jdbc.Driver", "jdbc:mysql://", "localhost/", Reader.readString("database"), Reader.readString("login"), Reader.readString("mdp"));
 //        Jdbc.creer("oracle.jdbc.driver.OracleDriver", "jdbc:oracle:thin:", "@localhost:1521:XE", "", "btssio", "btssio");
         Jdbc.getInstance().connecter();
         Connection cnx = Jdbc.getInstance().getConnexion();
