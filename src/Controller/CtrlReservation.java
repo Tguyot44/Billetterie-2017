@@ -27,9 +27,13 @@ public class CtrlReservation implements WindowListener, MouseListener {
         vue.getjTextFieldDate().setText(rep.getDateRep().toString());
         vue.getjTextFieldHeureDebut().setText(rep.getHeureDebut().toString());
         vue.getjTextFieldHeureFin().setText(rep.getHeureFin().toString());
-        vue.getjTextFieldNbPlaceTotal().setText(rep.getLieu().getCapaciteAccueil()+"");
-        vue.getjTextFieldNbPlaceDispo().setText(rep.getNbPlace()+"");
-        vue.getjTextFieldNbPlaceTotal().setText("");
+        vue.getjTextFieldNbPlaceTotal().setText(Integer.toString(rep.getLieu().getCapaciteAccueil()));
+        vue.getjTextFieldNbPlaceDispo().setText(Integer.toString(rep.getNbPlace()));
+        
+        vue.getjComboBoxNbPlaceSouhaite().removeAllItems();
+        for (int i = 1 ;i <= rep.getNbPlace();i++){
+        vue.getjComboBoxNbPlaceSouhaite().addItem(Integer.toString(i));
+        }
     }
     
     public JFrameReservation getVue(){
