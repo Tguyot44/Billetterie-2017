@@ -6,6 +6,7 @@
 package View;
 
 import Metier.Representation;
+import javax.swing.JLabel;
 
 /**
  *

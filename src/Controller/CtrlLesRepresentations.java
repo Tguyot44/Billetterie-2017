@@ -21,14 +21,11 @@ import java.awt.event.MouseListener;
  *
  * @author qbaudry
  */
-
 public class CtrlLesRepresentations implements WindowListener, MouseListener {
-    
-     private JFrameMenu vue; // LA VUE
-     
-     public CtrlLesRepresentations(JFrameMenu vue) {
-        
-        this.vue = vue;
+
+    private JFrameMenu vue = new JFrameMenu(); // LA VUE
+
+    public CtrlLesRepresentations() {
         // le contrôleur écoute la vue
         this.vue.addWindowListener(this);
         this.vue.getjTableRepresentation().addMouseListener(this);
@@ -40,9 +37,9 @@ public class CtrlLesRepresentations implements WindowListener, MouseListener {
             JOptionPane.showMessageDialog(getVue(), "CtrlLesRepresentations - échec de sélection des Representations");
         }
         afficherLesRepresentations(lesRepresentations);
-        
+
     }
-     
+
     // contrôle de la vue
     /**
      * Remplir le composant JTable avec les Representations
@@ -53,77 +50,66 @@ public class CtrlLesRepresentations implements WindowListener, MouseListener {
         getVue().getModeleTableRepresentation().setRowCount(0);
         String[] titresColonnes = {"DATE", "GROUPE", "LIEU", "DEBUT", "FIN", "PLACE"};
         getVue().getModeleTableRepresentation().setColumnIdentifiers(titresColonnes);
-        
+
         String[] ligneDonnees = new String[6];
-        
+
         for (Representation uneRepresentation : desRepresentations) {
             ligneDonnees[0] = uneRepresentation.getDateRep().toString();
             ligneDonnees[1] = uneRepresentation.getGroupe().getNomGroup();
             ligneDonnees[2] = uneRepresentation.getLieu().getNomLieu();
             ligneDonnees[3] = uneRepresentation.getHeureDebut().toString();
             ligneDonnees[4] = uneRepresentation.getHeureFin().toString();
-            ligneDonnees[5] = uneRepresentation.getNbPlace()+"";
-            getVue().getModeleTableRepresentation().addRow(ligneDonnees);            
-        }       
-    }
-    
-    /**
-     * Quitter l'application, après demande de confirmation
-     */
-    private void quitter() {
-        // Confirmer avant de quitter
-        int rep = JOptionPane.showConfirmDialog(getVue(), "Quitter l'application\nEtes-vous sûr(e) ?", "festival", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (rep == JOptionPane.YES_OPTION) {
-            // mettre fin à l'application
-            System.exit(0);
+            ligneDonnees[5] = uneRepresentation.getNbPlace() + "";
+            getVue().getModeleTableRepresentation().addRow(ligneDonnees);
         }
     }
-    
+
     // ACCESSEURS et MUTATEURS
     public JFrameMenu getVue() {
         return vue;
     }
-    
+
     public void setVue(JFrameMenu vue) {
         this.vue = vue;
     }
 
     @Override
     public void windowOpened(WindowEvent e) {
-       }
+    }
 
     @Override
     public void windowClosing(WindowEvent e) {
-        quitter();
-        }
+    }
 
     @Override
     public void windowClosed(WindowEvent e) {
-        }
+    }
 
     @Override
     public void windowIconified(WindowEvent e) {
-        }
+    }
 
     @Override
     public void windowDeiconified(WindowEvent e) {
-        }
+    }
 
     @Override
     public void windowActivated(WindowEvent e) {
-        }
+    }
 
     @Override
     public void windowDeactivated(WindowEvent e) {
-        }
+    }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        CtrlPrincipal ctrl = new CtrlPrincipal();
         int row = vue.getjTableRepresentation().getSelectedRow();
+        ctrl.showReservation(row);
         String groupeChoisis = (String) vue.getjTableRepresentation().getValueAt(row, 1);
         String nbPlace = (String) vue.getjTableRepresentation().getValueAt(row, 5);
-        int dialogResult = JOptionPane.showConfirmDialog (vue, "Il reste " + nbPlace + " places pour la représentation " + groupeChoisis + "\nVoulez vous des places ?");
-        if(dialogResult == JOptionPane.YES_OPTION){
+        int dialogResult = JOptionPane.showConfirmDialog(vue, "Il reste " + nbPlace + " places pour la représentation " + groupeChoisis + "\nVoulez vous des places ?");
+        if (dialogResult == JOptionPane.YES_OPTION) {
             new JFrameReservation().setVisible(true);
         }
     }

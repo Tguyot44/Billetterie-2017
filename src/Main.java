@@ -25,10 +25,8 @@ public class Main {
         Jdbc.creer("com.mysql.jdbc.Driver", "jdbc:mysql://", "localhost/", Reader.readString("database"), Reader.readString("login"), Reader.readString("mdp"));
         try {
             Jdbc.getInstance().connecter();
-            JFrameMenu uneVue = new JFrameMenu();
-            CtrlLesRepresentations unControleur = new CtrlLesRepresentations(uneVue);
-            // afficher la vue
-            uneVue.setVisible(true);
+            CtrlPrincipal ctrlPrcp = new CtrlPrincipal();
+            ctrlPrcp.showRepresentation();
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "Main - classe JDBC non trouvée");
         } catch (SQLException ex) {
