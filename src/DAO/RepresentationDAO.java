@@ -92,24 +92,23 @@ public class RepresentationDAO  {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-
-    /**public static int update(String idRepresentation, Representation unRepresentation) throws SQLException {
+    /*
+    public static int update(String idRepresentation, Representation uneRepresentation) throws SQLException {
         int nb;
         Jdbc jdbc = Jdbc.getInstance();
         String requete;
         ResultSet rs;
         PreparedStatement pstmt;
-        requete = "UPDATE REPRESENTATION SET ID = ? , DATE_REP = ?,ID_LIEU = ? , ID_GROUPE = ? , HEUREDEBUT = ? , HEUREFIN = ? ";
+        requete = "UPDATE REPRESENTATION SET ID = ? , DATE_REP = ?,ID_LIEU = ? , ID_GROUPE = ? , HEUREDEBUT = ? , HEUREFIN = ? , NBPLACE = ?";
         pstmt = jdbc.getConnexion().prepareStatement(requete);
         pstmt.setString(1, idRepresentation);
-        pstmt.setDate(2, unRepresentation.getDateRep());
-        pstmt.setString(3, unRepresentation.getLeLieu());
-        pstmt.setString(4, unRepresentation.getLeGroupe());
-        pstmt.setString(5, unRepresentation.getHeureDebut());
-        pstmt.setString(6, unRepresentation.getHeureFin());
+        pstmt.setDate(2, uneRepresentation.getDateRep());
+        pstmt.setString(3, uneRepresentation.getLeLieu());
+        pstmt.setString(4, uneRepresentation.getLeGroupe());
+        pstmt.setString(5, uneRepresentation.getHeureDebut());
+        pstmt.setString(6, uneRepresentation.getHeureFin());
         nb = pstmt.executeUpdate();
         return nb;
-   
-    } */
+    }*/
 }
 
