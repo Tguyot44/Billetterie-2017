@@ -93,23 +93,13 @@ public class RepresentationDAO  {
     }
     
 
-    /**public static int update(String idRepresentation, Representation unRepresentation) throws SQLException {
-        int nb;
-        Jdbc jdbc = Jdbc.getInstance();
-        String requete;
-        ResultSet rs;
+    public static void nbPlace(int placeVendu, String id) throws SQLException {
         PreparedStatement pstmt;
-        requete = "UPDATE REPRESENTATION SET ID = ? , DATE_REP = ?,ID_LIEU = ? , ID_GROUPE = ? , HEUREDEBUT = ? , HEUREFIN = ? ";
+        Jdbc jdbc = Jdbc.getInstance();
+        // préparer la requête
+        String requete = "UPDATE Representation SET nbplace = nbplace -"+ placeVendu +" where id='" + id + "'";
         pstmt = jdbc.getConnexion().prepareStatement(requete);
-        pstmt.setString(1, idRepresentation);
-        pstmt.setDate(2, unRepresentation.getDateRep());
-        pstmt.setString(3, unRepresentation.getLeLieu());
-        pstmt.setString(4, unRepresentation.getLeGroupe());
-        pstmt.setString(5, unRepresentation.getHeureDebut());
-        pstmt.setString(6, unRepresentation.getHeureFin());
-        nb = pstmt.executeUpdate();
-        return nb;
-   
-    } */
+        pstmt.executeUpdate();
+    }
 }
 
