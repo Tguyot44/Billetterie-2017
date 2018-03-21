@@ -24,19 +24,19 @@ import java.awt.event.MouseListener;
 public class CtrlLesRepresentations implements WindowListener, MouseListener {
 
     private JFrameMenu vue = new JFrameMenu(); // LA VUE
-
+    private List<Representation> lesRepresentations = null;
+    
     public CtrlLesRepresentations() {
         // le contrôleur écoute la vue
         this.vue.addWindowListener(this);
         this.vue.getjTableRepresentation().addMouseListener(this);
         // préparer l'état initial de la vue
-        List<Representation> lesRepresentations = null;
         try {
             lesRepresentations = RepresentationDAO.selectAll();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(getVue(), "CtrlLesRepresentations - échec de sélection des Representations");
         }
-        afficherLesRepresentations(lesRepresentations);
+        afficherLesRepresentations();
 
     }
 
@@ -46,14 +46,14 @@ public class CtrlLesRepresentations implements WindowListener, MouseListener {
      *
      * @param desRepresentations liste des adresses à afficher
      */
-    private final void afficherLesRepresentations(List<Representation> desRepresentations) {
+    private final void afficherLesRepresentations() {
         getVue().getModeleTableRepresentation().setRowCount(0);
         String[] titresColonnes = {"DATE", "GROUPE", "LIEU", "DEBUT", "FIN", "PLACE"};
         getVue().getModeleTableRepresentation().setColumnIdentifiers(titresColonnes);
 
         String[] ligneDonnees = new String[6];
 
-        for (Representation uneRepresentation : desRepresentations) {
+        for (Representation uneRepresentation : lesRepresentations) {
             ligneDonnees[0] = uneRepresentation.getDateRep().toString();
             ligneDonnees[1] = uneRepresentation.getGroupe().getNomGroup();
             ligneDonnees[2] = uneRepresentation.getLieu().getNomLieu();
@@ -105,7 +105,7 @@ public class CtrlLesRepresentations implements WindowListener, MouseListener {
     public void mouseClicked(MouseEvent e) {
         CtrlPrincipal ctrl = new CtrlPrincipal();
         int row = vue.getjTableRepresentation().getSelectedRow();
-        ctrl.showReservation(row);
+        ctrl.showReservation(lesRepresentations.get(row).getIdRep());
         String groupeChoisis = (String) vue.getjTableRepresentation().getValueAt(row, 1);
         String nbPlace = (String) vue.getjTableRepresentation().getValueAt(row, 5);
         int dialogResult = JOptionPane.showConfirmDialog(vue, "Il reste " + nbPlace + " places pour la représentation " + groupeChoisis + "\nVoulez vous des places ?");

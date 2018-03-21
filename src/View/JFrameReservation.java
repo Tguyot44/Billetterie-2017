@@ -6,7 +6,10 @@
 package View;
 
 import Metier.Representation;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -19,6 +22,150 @@ public class JFrameReservation extends javax.swing.JFrame {
      */
     public JFrameReservation() {
         initComponents();
+    }
+
+    public JButton getjButtonReserver() {
+        return jButtonReserver;
+    }
+
+    public void setjButtonReserver(JButton jButtonReserver) {
+        this.jButtonReserver = jButtonReserver;
+    }
+
+    public JComboBox<String> getjComboBoxNbPlaceSouhaite() {
+        return jComboBoxNbPlaceSouhaite;
+    }
+
+    public void setjComboBoxNbPlaceSouhaite(JComboBox<String> jComboBoxNbPlaceSouhaite) {
+        this.jComboBoxNbPlaceSouhaite = jComboBoxNbPlaceSouhaite;
+    }
+
+    public JLabel getjLabelDate() {
+        return jLabelDate;
+    }
+
+    public void setjLabelDate(JLabel jLabelDate) {
+        this.jLabelDate = jLabelDate;
+    }
+
+    public JLabel getjLabelGroupe() {
+        return jLabelGroupe;
+    }
+
+    public void setjLabelGroupe(JLabel jLabelGroupe) {
+        this.jLabelGroupe = jLabelGroupe;
+    }
+
+    public JLabel getjLabelHeureDebut() {
+        return jLabelHeureDebut;
+    }
+
+    public void setjLabelHeureDebut(JLabel jLabelHeureDebut) {
+        this.jLabelHeureDebut = jLabelHeureDebut;
+    }
+
+    public JLabel getjLabelHeureFin() {
+        return jLabelHeureFin;
+    }
+
+    public void setjLabelHeureFin(JLabel jLabelHeureFin) {
+        this.jLabelHeureFin = jLabelHeureFin;
+    }
+
+    public JLabel getjLabelLieu() {
+        return jLabelLieu;
+    }
+
+    public void setjLabelLieu(JLabel jLabelLieu) {
+        this.jLabelLieu = jLabelLieu;
+    }
+
+    public JLabel getjLabelNbPlaceDispo() {
+        return jLabelNbPlaceDispo;
+    }
+
+    public void setjLabelNbPlaceDispo(JLabel jLabelNbPlaceDispo) {
+        this.jLabelNbPlaceDispo = jLabelNbPlaceDispo;
+    }
+
+    public JLabel getjLabelNbPlaceSouhaite() {
+        return jLabelNbPlaceSouhaite;
+    }
+
+    public void setjLabelNbPlaceSouhaite(JLabel jLabelNbPlaceSouhaite) {
+        this.jLabelNbPlaceSouhaite = jLabelNbPlaceSouhaite;
+    }
+
+    public JLabel getjLabelNbPlaceTotal() {
+        return jLabelNbPlaceTotal;
+    }
+
+    public void setjLabelNbPlaceTotal(JLabel jLabelNbPlaceTotal) {
+        this.jLabelNbPlaceTotal = jLabelNbPlaceTotal;
+    }
+
+    public JLabel getjLabelTitre() {
+        return jLabelTitre;
+    }
+
+    public void setjLabelTitre(JLabel jLabelTitre) {
+        this.jLabelTitre = jLabelTitre;
+    }
+
+    public JTextField getjTextFieldDate() {
+        return jTextFieldDate;
+    }
+
+    public void setjTextFieldDate(JTextField jTextFieldDate) {
+        this.jTextFieldDate = jTextFieldDate;
+    }
+
+    public JTextField getjTextFieldGroupe() {
+        return jTextFieldGroupe;
+    }
+
+    public void setjTextFieldGroupe(JTextField jTextFieldGroupe) {
+        this.jTextFieldGroupe = jTextFieldGroupe;
+    }
+
+    public JTextField getjTextFieldHeureDebut() {
+        return jTextFieldHeureDebut;
+    }
+
+    public void setjTextFieldHeureDebut(JTextField jTextFieldHeureDebut) {
+        this.jTextFieldHeureDebut = jTextFieldHeureDebut;
+    }
+
+    public JTextField getjTextFieldHeureFin() {
+        return jTextFieldHeureFin;
+    }
+
+    public void setjTextFieldHeureFin(JTextField jTextFieldHeureFin) {
+        this.jTextFieldHeureFin = jTextFieldHeureFin;
+    }
+
+    public JTextField getjTextFieldLieu() {
+        return jTextFieldLieu;
+    }
+
+    public void setjTextFieldLieu(JTextField jTextFieldLieu) {
+        this.jTextFieldLieu = jTextFieldLieu;
+    }
+
+    public JTextField getjTextFieldNbPlaceDispo() {
+        return jTextFieldNbPlaceDispo;
+    }
+
+    public void setjTextFieldNbPlaceDispo(JTextField jTextFieldNbPlaceDispo) {
+        this.jTextFieldNbPlaceDispo = jTextFieldNbPlaceDispo;
+    }
+
+    public JTextField getjTextFieldNbPlaceTotal() {
+        return jTextFieldNbPlaceTotal;
+    }
+
+    public void setjTextFieldNbPlaceTotal(JTextField jTextFieldNbPlaceTotal) {
+        this.jTextFieldNbPlaceTotal = jTextFieldNbPlaceTotal;
     }
 
     /**

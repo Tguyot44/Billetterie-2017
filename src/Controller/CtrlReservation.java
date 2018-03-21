@@ -10,6 +10,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import Metier.Representation;
+import DAO.RepresentationDAO;
 
 /**
  *
@@ -19,7 +21,15 @@ public class CtrlReservation implements WindowListener, MouseListener {
     JFrameReservation vue = new JFrameReservation();
     
     public CtrlReservation(int id){
-        System.out.println(id);
+        Representation rep = RepresentationDAO.selectOne(id);
+        vue.getjTextFieldGroupe().setText(rep.getGroupe().getNomGroup());
+        vue.getjTextFieldLieu().setText(rep.getLieu().getNomLieu());
+        vue.getjTextFieldDate().setText(rep.getDateRep().toString());
+        vue.getjTextFieldHeureDebut().setText(rep.getHeureDebut().toString());
+        vue.getjTextFieldHeureFin().setText(rep.getHeureFin().toString());
+        vue.getjTextFieldNbPlaceTotal().setText(rep.getLieu().getCapaciteAccueil()+"");
+        vue.getjTextFieldNbPlaceDispo().setText(rep.getNbPlace()+"");
+        vue.getjTextFieldNbPlaceTotal().setText("");
     }
     
     public JFrameReservation getVue(){
