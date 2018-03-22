@@ -26,7 +26,7 @@ public class CtrlReservation implements WindowListener, MouseListener, ActionLis
     Representation rep;
     private CtrlPrincipal ctrlPrinc;
 
-    public CtrlReservation(int id,CtrlPrincipal  ctrlPrinc) {
+    public CtrlReservation(int id, CtrlPrincipal ctrlPrinc) {
         this.ctrlPrinc = ctrlPrinc;
         rep = RepresentationDAO.selectOne(id);
         vue.getjTextFieldGroupe().setText(rep.getGroupe().getNomGroup());
@@ -42,6 +42,7 @@ public class CtrlReservation implements WindowListener, MouseListener, ActionLis
             vue.getjComboBoxNbPlaceSouhaite().addItem(Integer.toString(i));
         }
         vue.getjButtonReserver().addActionListener(this);
+        vue.getJButtonBack().addActionListener(this);
     }
 
     public JFrameReservation getVue() {
@@ -110,12 +111,19 @@ public class CtrlReservation implements WindowListener, MouseListener, ActionLis
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        int nbplace = rep.getNbPlace() - Integer.parseInt(vue.getjComboBoxNbPlaceSouhaite().getSelectedItem().toString());
-        RepresentationDAO.updateNbPlace(rep.getIdRep(), nbplace);
-        JOptionPane.showMessageDialog(vue,
-                "Commande réussie. \nIl reste "+nbplace+" place(s).",
-                "Reservation",
-                JOptionPane.PLAIN_MESSAGE);
-        vue.setVisible(false);
+        if (e.getSource() == vue.getjButtonReserver()) {
+            int nbplace = rep.getNbPlace() - Integer.parseInt(vue.getjComboBoxNbPlaceSouhaite().getSelectedItem().toString());
+            RepresentationDAO.updateNbPlace(rep.getIdRep(), nbplace);
+            JOptionPane.showMessageDialog(vue,
+                    "Commande réussie. \nIl reste " + nbplace + " place(s).",
+                    "Reservation",
+                    JOptionPane.PLAIN_MESSAGE);
+            ctrlPrinc.showRepresentation();
+            vue.setVisible(false);
+        }
+        if (e.getSource() == vue.getJButtonBack()) {
+            ctrlPrinc.showRepresentation();
+            vue.setVisible(false);
+        }
     }
 }

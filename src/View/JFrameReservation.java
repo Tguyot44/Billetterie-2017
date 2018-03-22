@@ -40,6 +40,14 @@ public class JFrameReservation extends javax.swing.JFrame {
         this.jComboBoxNbPlaceSouhaite = jComboBoxNbPlaceSouhaite;
     }
 
+    public JButton getJButtonBack() {
+        return JButtonBack;
+    }
+
+    public void setJButtonBack(JButton BackButton) {
+        this.JButtonBack = BackButton;
+    }
+
     public JLabel getjLabelDate() {
         return jLabelDate;
     }
@@ -195,6 +203,7 @@ public class JFrameReservation extends javax.swing.JFrame {
         jTextFieldHeureDebut = new javax.swing.JTextField();
         jTextFieldNbPlaceDispo = new javax.swing.JTextField();
         jLabelTitre = new javax.swing.JLabel();
+        JButtonBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -240,6 +249,8 @@ public class JFrameReservation extends javax.swing.JFrame {
         jLabelTitre.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabelTitre.setText("REPRESENTATION:");
 
+        JButtonBack.setText("Quitter");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -259,7 +270,8 @@ public class JFrameReservation extends javax.swing.JFrame {
                             .addComponent(jLabelLieu)
                             .addComponent(jLabelDate)
                             .addComponent(jLabelGroupe)
-                            .addComponent(jLabelNbPlaceSouhaite))
+                            .addComponent(jLabelNbPlaceSouhaite)
+                            .addComponent(JButtonBack))
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldLieu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -312,7 +324,9 @@ public class JFrameReservation extends javax.swing.JFrame {
                     .addComponent(jComboBoxNbPlaceSouhaite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelNbPlaceSouhaite))
                 .addGap(18, 18, 18)
-                .addComponent(jButtonReserver)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonReserver)
+                    .addComponent(JButtonBack))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -359,6 +373,7 @@ public class JFrameReservation extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JButtonBack;
     private javax.swing.JButton jButtonReserver;
     private javax.swing.JComboBox<String> jComboBoxNbPlaceSouhaite;
     private javax.swing.JLabel jLabelDate;
