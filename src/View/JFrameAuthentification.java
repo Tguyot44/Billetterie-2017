@@ -5,6 +5,7 @@
  */
 package View;
 
+import javax.swing.JButton;
 import javax.swing.JTextField;
 
 /**
@@ -146,6 +147,14 @@ public class JFrameAuthentification extends javax.swing.JFrame {
 
     public void setjTextFieldMdp(JTextField jTextFieldMdp) {
         this.jTextFieldMdp = jTextFieldMdp;
+    }
+
+    public JButton getjButtonValider() {
+        return jButtonValider;
+    }
+
+    public void setjButtonValider(JButton jButtonValider) {
+        this.jButtonValider = jButtonValider;
     }
     
 }
