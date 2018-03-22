@@ -14,17 +14,20 @@ import Metier.Representation;
 import DAO.RepresentationDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author tguyot
  */
-public class CtrlReservation implements WindowListener, MouseListener,ActionListener {
+public class CtrlReservation implements WindowListener, MouseListener, ActionListener {
 
     JFrameReservation vue = new JFrameReservation();
     Representation rep;
+    private CtrlPrincipal ctrlPrinc;
 
-    public CtrlReservation(int id) {
+    public CtrlReservation(int id,CtrlPrincipal  ctrlPrinc) {
+        this.ctrlPrinc = ctrlPrinc;
         rep = RepresentationDAO.selectOne(id);
         vue.getjTextFieldGroupe().setText(rep.getGroupe().getNomGroup());
         vue.getjTextFieldLieu().setText(rep.getLieu().getNomLieu());
@@ -108,6 +111,11 @@ public class CtrlReservation implements WindowListener, MouseListener,ActionList
     @Override
     public void actionPerformed(ActionEvent e) {
         int nbplace = rep.getNbPlace() - Integer.parseInt(vue.getjComboBoxNbPlaceSouhaite().getSelectedItem().toString());
-        RepresentationDAO.updateNbPlace(rep.getIdRep(),nbplace );
+        RepresentationDAO.updateNbPlace(rep.getIdRep(), nbplace);
+        JOptionPane.showMessageDialog(vue,
+                "Commande réussie. \nIl reste "+nbplace+" place(s).",
+                "Reservation",
+                JOptionPane.PLAIN_MESSAGE);
+        vue.setVisible(false);
     }
 }
