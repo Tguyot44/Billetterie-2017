@@ -96,7 +96,6 @@ public class RepresentationDAO {
     public static Representation selectOne(int idRepresentation) {
         Representation uneRepresentation = null;
         ResultSet rs;
-
         PreparedStatement pstmt;
         Jdbc jdbc = Jdbc.getInstance();
         // préparer la requête
@@ -122,9 +121,6 @@ public class RepresentationDAO {
         }
         return uneRepresentation;
     }
-
-
-
 
     /**
      * @param id

@@ -26,11 +26,8 @@ public class CtrlLesRepresentations implements WindowListener, MouseListener {
 
     private JFrameMenu vue = new JFrameMenu(); // LA VUE
     private List<Representation> lesRepresentations = null;
-
     private CtrlPrincipal ctrlPrinc;
-
-
-
+    
     public CtrlLesRepresentations(CtrlPrincipal ctrlPrinc) {
        this.ctrlPrinc = ctrlPrinc;
         // le contrôleur écoute la vue
