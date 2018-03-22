@@ -24,14 +24,14 @@ public class CtrlPrincipal implements WindowListener, ActionListener {
     CtrlAuthentification ctrlauth;
 
     public void showRepresentation() {
-        ctrlrep = new CtrlLesRepresentations();
+        ctrlrep = new CtrlLesRepresentations(this);
         ctrlrep.getVue().setVisible(true);
     }
     public void hideRepresentation(){
         ctrlrep.getVue().setVisible(false);
     }
     public void showReservation(int id) {
-        ctrlres = new CtrlReservation(id);
+        ctrlres = new CtrlReservation(id,this);
         ctrlres.getVue().setVisible(true);
     }
     public void hideReservation(){
