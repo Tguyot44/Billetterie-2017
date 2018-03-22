@@ -12,16 +12,20 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import Metier.Representation;
 import DAO.RepresentationDAO;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author tguyot
  */
-public class CtrlReservation implements WindowListener, MouseListener {
+public class CtrlReservation implements WindowListener, MouseListener,ActionListener {
+
     JFrameReservation vue = new JFrameReservation();
-    
-    public CtrlReservation(int id){
-        Representation rep = RepresentationDAO.selectOne(id);
+    Representation rep;
+
+    public CtrlReservation(int id) {
+        rep = RepresentationDAO.selectOne(id);
         vue.getjTextFieldGroupe().setText(rep.getGroupe().getNomGroup());
         vue.getjTextFieldLieu().setText(rep.getLieu().getNomLieu());
         vue.getjTextFieldDate().setText(rep.getDateRep().toString());
@@ -29,14 +33,15 @@ public class CtrlReservation implements WindowListener, MouseListener {
         vue.getjTextFieldHeureFin().setText(rep.getHeureFin().toString());
         vue.getjTextFieldNbPlaceTotal().setText(Integer.toString(rep.getLieu().getCapaciteAccueil()));
         vue.getjTextFieldNbPlaceDispo().setText(Integer.toString(rep.getNbPlace()));
-        
+
         vue.getjComboBoxNbPlaceSouhaite().removeAllItems();
-        for (int i = 1 ;i <= rep.getNbPlace();i++){
-        vue.getjComboBoxNbPlaceSouhaite().addItem(Integer.toString(i));
+        for (int i = 1; i <= rep.getNbPlace(); i++) {
+            vue.getjComboBoxNbPlaceSouhaite().addItem(Integer.toString(i));
         }
+        vue.getjButtonReserver().addActionListener(this);
     }
-    
-    public JFrameReservation getVue(){
+
+    public JFrameReservation getVue() {
         return vue;
     }
 
@@ -98,5 +103,11 @@ public class CtrlReservation implements WindowListener, MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        int nbplace = rep.getNbPlace() - Integer.parseInt(vue.getjComboBoxNbPlaceSouhaite().getSelectedItem().toString());
+        RepresentationDAO.updateNbPlace(rep.getIdRep(),nbplace );
     }
 }

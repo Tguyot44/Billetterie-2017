@@ -14,6 +14,10 @@ import Metier.Lieu;
 import Metier.Groupe;
 import DAO.LieuDAO;
 import DAO.GroupeDAO;
+import java.sql.Connection;
+import java.sql.Statement;
+import Properties.Reader;
+import java.sql.DriverManager;
 
 /**
  *
@@ -117,6 +121,20 @@ public class RepresentationDAO {
         }
         return uneRepresentation;
     }
+
+    /**
+     * @param id
+     * @param nbDePlace 
+     */
+    public static void updateNbPlace(int id, int nbDePlace) {
+        try (Connection conn = DriverManager.getConnection(Reader.readString("DBB_url"), Reader.readString("login"), Reader.readString("mdp"));
+                Statement stmt = conn.createStatement();) {
+            stmt.executeUpdate("UPDATE `Representation` SET `nbPlace`= " + nbDePlace + " WHERE `id` = " + id);
+        } catch (Exception e) {
+            System.err.println("NbPlace Update Failed");
+        }
+    }
+//UPDATE `Representation` SET `nbPlace`=  WHERE `id` = 
 
     /**
      * public static int update(String idRepresentation, Representation
