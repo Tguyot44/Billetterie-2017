@@ -249,7 +249,7 @@ public class JFrameReservation extends javax.swing.JFrame {
         jLabelTitre.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabelTitre.setText("REPRESENTATION:");
 
-        JButtonBack.setText("Back");
+        JButtonBack.setText("Quitter");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -107,9 +107,9 @@ public class CtrlLesRepresentations implements WindowListener, MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        CtrlPrincipal ctrl = new CtrlPrincipal();
         int row = vue.getjTableRepresentation().getSelectedRow();
-        ctrl.showReservation(lesRepresentations.get(row).getIdRep());
+        ctrlPrinc.showReservation(lesRepresentations.get(row).getIdRep());
+        ctrlPrinc.hideRepresentation();
     }
 
     @Override

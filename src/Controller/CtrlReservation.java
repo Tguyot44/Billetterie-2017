@@ -118,9 +118,11 @@ public class CtrlReservation implements WindowListener, MouseListener, ActionLis
                     "Commande réussie. \nIl reste " + nbplace + " place(s).",
                     "Reservation",
                     JOptionPane.PLAIN_MESSAGE);
+            ctrlPrinc.showRepresentation();
             vue.setVisible(false);
         }
         if (e.getSource() == vue.getJButtonBack()) {
+            ctrlPrinc.showRepresentation();
             vue.setVisible(false);
         }
     }
