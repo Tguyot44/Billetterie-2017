@@ -16,6 +16,7 @@ import View.JFrameMenu;
 import View.JFrameReservation;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JTextField;
 
 /**
  *
@@ -25,8 +26,13 @@ public class CtrlLesRepresentations implements WindowListener, MouseListener {
 
     private JFrameMenu vue = new JFrameMenu(); // LA VUE
     private List<Representation> lesRepresentations = null;
-    
-    public CtrlLesRepresentations() {
+
+    private CtrlPrincipal ctrlPrinc;
+
+
+
+    public CtrlLesRepresentations(CtrlPrincipal ctrlPrinc) {
+       this.ctrlPrinc = ctrlPrinc;
         // le contrôleur écoute la vue
         this.vue.addWindowListener(this);
         this.vue.getjTableRepresentation().addMouseListener(this);
@@ -36,6 +42,7 @@ public class CtrlLesRepresentations implements WindowListener, MouseListener {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(getVue(), "CtrlLesRepresentations - échec de sélection des Representations");
         }
+
         afficherLesRepresentations();
 
     }
@@ -47,6 +54,12 @@ public class CtrlLesRepresentations implements WindowListener, MouseListener {
      * @param desRepresentations liste des adresses à afficher
      */
     private final void afficherLesRepresentations() {
+
+        try {
+            lesRepresentations = RepresentationDAO.selectAll();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(getVue(), "CtrlLesRepresentations - échec de sélection des Representations");
+        }
         getVue().getModeleTableRepresentation().setRowCount(0);
         String[] titresColonnes = {"DATE", "GROUPE", "LIEU", "DEBUT", "FIN", "PLACE"};
         getVue().getModeleTableRepresentation().setColumnIdentifiers(titresColonnes);
@@ -95,6 +108,8 @@ public class CtrlLesRepresentations implements WindowListener, MouseListener {
 
     @Override
     public void windowActivated(WindowEvent e) {
+
+        afficherLesRepresentations();
     }
 
     @Override
@@ -112,6 +127,7 @@ public class CtrlLesRepresentations implements WindowListener, MouseListener {
         if (dialogResult == JOptionPane.YES_OPTION) {
             new JFrameReservation().setVisible(true);
         }
+
     }
 
     @Override

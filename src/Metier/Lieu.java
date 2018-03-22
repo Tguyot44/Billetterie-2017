@@ -59,7 +59,4 @@ public class Lieu {
     public void setCapaciteAccueil(int capaciteAccueil) {
         this.capaciteAccueil = capaciteAccueil;
     }
-    
-    
-    
 }

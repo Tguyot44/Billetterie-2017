@@ -9,7 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,22 +20,30 @@ public class CtrlPrincipal implements WindowListener, ActionListener {
     
     CtrlLesRepresentations ctrlrep;
     CtrlReservation ctrlres;
+    CtrlAuthentification ctrlauth;
 
     public void showRepresentation() {
-        ctrlrep = new CtrlLesRepresentations();
+        ctrlrep = new CtrlLesRepresentations(this);
         ctrlrep.getVue().setVisible(true);
     }
     public void hideRepresentation(){
         ctrlrep.getVue().setVisible(false);
     }
     public void showReservation(int id) {
-        ctrlres = new CtrlReservation(id);
+        ctrlres = new CtrlReservation(id,this);
         ctrlres.getVue().setVisible(true);
     }
     public void hideReservation(){
         ctrlres.getVue().setVisible(false);
     }
-
+    public void showAuthentification() {
+        ctrlauth = new CtrlAuthentification();
+        ctrlauth.getVue().setVisible(true);
+    }
+    public void hideAuthentification(){
+        ctrlauth.getVue().setVisible(false);
+    }
+    
     @Override
     public void windowOpened(WindowEvent e) {
     }
