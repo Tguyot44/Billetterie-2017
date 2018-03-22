@@ -16,6 +16,7 @@ import View.JFrameMenu;
 import View.JFrameReservation;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JTextField;
 
 /**
  *
@@ -109,12 +110,6 @@ public class CtrlLesRepresentations implements WindowListener, MouseListener {
         CtrlPrincipal ctrl = new CtrlPrincipal();
         int row = vue.getjTableRepresentation().getSelectedRow();
         ctrl.showReservation(lesRepresentations.get(row).getIdRep());
-        String groupeChoisis = (String) vue.getjTableRepresentation().getValueAt(row, 1);
-        String nbPlace = (String) vue.getjTableRepresentation().getValueAt(row, 5);
-        int dialogResult = JOptionPane.showConfirmDialog(vue, "Il reste " + nbPlace + " places pour la représentation " + groupeChoisis + "\nVoulez vous des places ?");
-        if (dialogResult == JOptionPane.YES_OPTION) {
-            new JFrameReservation().setVisible(true);
-        }
     }
 
     @Override
