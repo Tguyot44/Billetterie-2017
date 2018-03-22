@@ -30,27 +30,16 @@ import javax.swing.JTextField;
 public class CtrlAuthentification implements WindowListener, ActionListener {
 
     private JFrameAuthentification vue = new JFrameAuthentification(); // LA VUE
-    private CtrlPrincipal ctrlPrincipal;
+    private CtrlPrincipal ctrlPrinc;
     
-    public CtrlAuthentification(JFrameAuthentification vue, CtrlPrincipal ctrl) {
+    public CtrlAuthentification(CtrlPrincipal ctrlPrinc) {
         // le contrôleur écoute la vue
         this.vue.addWindowListener(this);
         
         this.vue=vue;
         this.vue.addWindowListener((WindowListener) this);
         this.vue.getjButtonValider().addActionListener((ActionListener) this);
-        this.ctrlPrincipal = ctrl;
-        
-        
-        
-        
-        JTextField jTextFieldLogin = new JTextField();
-        JTextField jTextFieldMdp = new JTextField();
-        JButton jButtonValider = new JButton("Valider");
-        //Ajoute un listener : ici le listener est cette classe
-        jButtonValider.addActionListener(this);
-
-        
+        this.ctrlPrinc = ctrlPrinc;        
     }
 
     // ACCESSEURS et MUTATEURS
@@ -95,7 +84,7 @@ public class CtrlAuthentification implements WindowListener, ActionListener {
         if(e.getSource().equals(this.vue.getjButtonValider())){
             try {
                 String login = this.vue.getjTextFieldLogin().getText();
-                String mdp = this.vue.getjTextFieldMdp().getText();
+                String mdp = this.vue.getjPasswordFieldMdp().getText();
                 
                 MessageDigest mdLogin = MessageDigest.getInstance("SHA-256");
                 mdLogin.update(mdp.getBytes());
@@ -114,7 +103,8 @@ public class CtrlAuthentification implements WindowListener, ActionListener {
                 }
                 
                 if(Reader.readString("Authentification_login").equals(sbLogin.toString()) && Reader.readString("Authentification_login").equals(sbMDP.toString())){
-                    ctrlPrincipal.showRepresentation();
+                    ctrlPrinc.showRepresentation();
+                    ctrlPrinc.hideAuthentification();
                 }else {
                     JOptionPane.showMessageDialog(null, "Votre login et/ou MDP est incorrecte");
                 }
