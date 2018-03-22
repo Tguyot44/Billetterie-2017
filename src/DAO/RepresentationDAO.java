@@ -127,11 +127,11 @@ public class RepresentationDAO {
      * @param nbDePlace 
      */
     public static void updateNbPlace(int id, int nbDePlace) {
-        try (Connection conn = DriverManager.getConnection(Reader.readString("DBB_url"), Reader.readString("login"), Reader.readString("mdp"));
+        try (Connection conn = DriverManager.getConnection(Reader.readString("BDD_url"), Reader.readString("BDD_login"), Reader.readString("BDD_mdp"));
                 Statement stmt = conn.createStatement();) {
             stmt.executeUpdate("UPDATE `Representation` SET `nbPlace`= " + nbDePlace + " WHERE `id` = " + id);
         } catch (Exception e) {
-            System.err.println("NbPlace Update Failed");
+            throw new java.lang.Error("Failed To Execute Statement: \n\r"+e);
         }
     }
 //UPDATE `Representation` SET `nbPlace`=  WHERE `id` = 
