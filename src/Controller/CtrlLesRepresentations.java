@@ -33,11 +33,6 @@ public class CtrlLesRepresentations implements WindowListener, MouseListener {
         this.vue.addWindowListener(this);
         this.vue.getjTableRepresentation().addMouseListener(this);
         // préparer l'état initial de la vue
-        try {
-            lesRepresentations = RepresentationDAO.selectAll();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(getVue(), "CtrlLesRepresentations - échec de sélection des Representations");
-        }
         afficherLesRepresentations();
 
     }
@@ -49,6 +44,11 @@ public class CtrlLesRepresentations implements WindowListener, MouseListener {
      * @param desRepresentations liste des adresses à afficher
      */
     private final void afficherLesRepresentations() {
+        try {
+            lesRepresentations = RepresentationDAO.selectAll();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(getVue(), "CtrlLesRepresentations - échec de sélection des Representations");
+        }
         getVue().getModeleTableRepresentation().setRowCount(0);
         String[] titresColonnes = {"DATE", "GROUPE", "LIEU", "DEBUT", "FIN", "PLACE"};
         getVue().getModeleTableRepresentation().setColumnIdentifiers(titresColonnes);
@@ -97,6 +97,7 @@ public class CtrlLesRepresentations implements WindowListener, MouseListener {
 
     @Override
     public void windowActivated(WindowEvent e) {
+        afficherLesRepresentations();
     }
 
     @Override
