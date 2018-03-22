@@ -27,7 +27,7 @@ public class Main {
         try {
             Jdbc.getInstance().connecter();
             CtrlPrincipal ctrlPrcp = new CtrlPrincipal();
-            ctrlPrcp.showRepresentation();
+            ctrlPrcp.showAuthentification();
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "Main - classe JDBC non trouvée");
         } catch (SQLException ex) {
