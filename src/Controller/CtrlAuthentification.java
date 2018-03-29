@@ -112,5 +112,5 @@ public class CtrlAuthentification implements WindowListener, ActionListener {
                 Logger.getLogger(CtrlAuthentification.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-}
+    }
 }

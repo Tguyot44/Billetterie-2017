@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 15 Mars 2018 à 15:28
+-- Généré le :  Jeu 29 Mars 2018 à 16:01
 -- Version du serveur :  5.7.21-0ubuntu0.16.04.1
--- Version de PHP :  7.0.25-0ubuntu0.16.04.1
+-- Version de PHP :  7.0.28-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,8 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `festival`
+-- Base de données :  `festival_billetterie`
 --
+CREATE DATABASE IF NOT EXISTS `festival_billetterie` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `festival_billetterie`;
 
 -- --------------------------------------------------------
 
@@ -26,13 +28,22 @@ SET time_zone = "+00:00";
 -- Structure de la table `Attribution`
 --
 
-CREATE TABLE `Attribution` (
+DROP TABLE IF EXISTS `Attribution`;
+CREATE TABLE IF NOT EXISTS `Attribution` (
   `idEtab` char(8) COLLATE utf8_unicode_ci NOT NULL,
   `idTypeChambre` char(2) COLLATE utf8_unicode_ci NOT NULL,
   `idGroupe` char(4) COLLATE utf8_unicode_ci NOT NULL,
-  `nombreChambres` int(11) NOT NULL
+  `nombreChambres` int(11) NOT NULL,
+  PRIMARY KEY (`idEtab`,`idTypeChambre`,`idGroupe`),
+  KEY `idTypeChambre` (`idTypeChambre`),
+  KEY `idGroupe` (`idGroupe`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Vider la table avant d'insérer `Attribution`
+--
+
+TRUNCATE TABLE `Attribution`;
 --
 -- Contenu de la table `Attribution`
 --
@@ -57,7 +68,8 @@ INSERT INTO `Attribution` (`idEtab`, `idTypeChambre`, `idGroupe`, `nombreChambre
 -- Structure de la table `Etablissement`
 --
 
-CREATE TABLE `Etablissement` (
+DROP TABLE IF EXISTS `Etablissement`;
+CREATE TABLE IF NOT EXISTS `Etablissement` (
   `id` char(8) COLLATE utf8_unicode_ci NOT NULL,
   `nom` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `adresseRue` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
@@ -68,9 +80,15 @@ CREATE TABLE `Etablissement` (
   `type` tinyint(4) NOT NULL,
   `civiliteResponsable` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
   `nomResponsable` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
-  `prenomResponsable` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL
+  `prenomResponsable` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Vider la table avant d'insérer `Etablissement`
+--
+
+TRUNCATE TABLE `Etablissement`;
 --
 -- Contenu de la table `Etablissement`
 --
@@ -86,16 +104,23 @@ INSERT INTO `Etablissement` (`id`, `nom`, `adresseRue`, `codePostal`, `ville`, `
 -- Structure de la table `Groupe`
 --
 
-CREATE TABLE `Groupe` (
+DROP TABLE IF EXISTS `Groupe`;
+CREATE TABLE IF NOT EXISTS `Groupe` (
   `id` char(4) COLLATE utf8_unicode_ci NOT NULL,
   `nom` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `identiteResponsable` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   `adressePostale` varchar(120) COLLATE utf8_unicode_ci DEFAULT NULL,
   `nombrePersonnes` int(11) NOT NULL,
   `nomPays` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
-  `hebergement` char(1) COLLATE utf8_unicode_ci NOT NULL
+  `hebergement` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Vider la table avant d'insérer `Groupe`
+--
+
+TRUNCATE TABLE `Groupe`;
 --
 -- Contenu de la table `Groupe`
 --
@@ -152,13 +177,20 @@ INSERT INTO `Groupe` (`id`, `nom`, `identiteResponsable`, `adressePostale`, `nom
 -- Structure de la table `Lieu`
 --
 
-CREATE TABLE `Lieu` (
+DROP TABLE IF EXISTS `Lieu`;
+CREATE TABLE IF NOT EXISTS `Lieu` (
   `id` int(5) NOT NULL,
   `nom` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `adr` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `capacite` int(11) DEFAULT NULL
+  `capacite` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Vider la table avant d'insérer `Lieu`
+--
+
+TRUNCATE TABLE `Lieu`;
 --
 -- Contenu de la table `Lieu`
 --
@@ -175,12 +207,20 @@ INSERT INTO `Lieu` (`id`, `nom`, `adr`, `capacite`) VALUES
 -- Structure de la table `Offre`
 --
 
-CREATE TABLE `Offre` (
+DROP TABLE IF EXISTS `Offre`;
+CREATE TABLE IF NOT EXISTS `Offre` (
   `idEtab` char(8) COLLATE utf8_unicode_ci NOT NULL,
   `idTypeChambre` char(2) COLLATE utf8_unicode_ci NOT NULL,
-  `nombreChambres` int(11) NOT NULL
+  `nombreChambres` int(11) NOT NULL,
+  PRIMARY KEY (`idEtab`,`idTypeChambre`),
+  KEY `idTypeChambre` (`idTypeChambre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Vider la table avant d'insérer `Offre`
+--
+
+TRUNCATE TABLE `Offre`;
 --
 -- Contenu de la table `Offre`
 --
@@ -201,16 +241,25 @@ INSERT INTO `Offre` (`idEtab`, `idTypeChambre`, `nombreChambres`) VALUES
 -- Structure de la table `Representation`
 --
 
-CREATE TABLE `Representation` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `Representation`;
+CREATE TABLE IF NOT EXISTS `Representation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `date_rep` date NOT NULL,
   `id_lieu` int(11) NOT NULL,
   `id_groupe` char(4) COLLATE utf8_unicode_ci NOT NULL,
   `heureDebut` time DEFAULT NULL,
   `heureFin` time DEFAULT NULL,
-  `nbPlace` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `nbPlace` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_Lieu` (`id_lieu`),
+  KEY `FK_Groupe` (`id_groupe`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Vider la table avant d'insérer `Representation`
+--
+
+TRUNCATE TABLE `Representation`;
 --
 -- Contenu de la table `Representation`
 --
@@ -243,11 +292,18 @@ INSERT INTO `Representation` (`id`, `date_rep`, `id_lieu`, `id_groupe`, `heureDe
 -- Structure de la table `TypeChambre`
 --
 
-CREATE TABLE `TypeChambre` (
+DROP TABLE IF EXISTS `TypeChambre`;
+CREATE TABLE IF NOT EXISTS `TypeChambre` (
   `id` char(2) COLLATE utf8_unicode_ci NOT NULL,
-  `libelle` varchar(15) COLLATE utf8_unicode_ci NOT NULL
+  `libelle` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Vider la table avant d'insérer `TypeChambre`
+--
+
+TRUNCATE TABLE `TypeChambre`;
 --
 -- Contenu de la table `TypeChambre`
 --
@@ -259,66 +315,32 @@ INSERT INTO `TypeChambre` (`id`, `libelle`) VALUES
 ('C4', '6 à 8 lits'),
 ('C5', '8 à 12 lits');
 
---
--- Index pour les tables exportées
---
+-- --------------------------------------------------------
 
 --
--- Index pour la table `Attribution`
---
-ALTER TABLE `Attribution`
-  ADD PRIMARY KEY (`idEtab`,`idTypeChambre`,`idGroupe`),
-  ADD KEY `idTypeChambre` (`idTypeChambre`),
-  ADD KEY `idGroupe` (`idGroupe`);
-
---
--- Index pour la table `Etablissement`
---
-ALTER TABLE `Etablissement`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `Groupe`
---
-ALTER TABLE `Groupe`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `Lieu`
---
-ALTER TABLE `Lieu`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `Offre`
---
-ALTER TABLE `Offre`
-  ADD PRIMARY KEY (`idEtab`,`idTypeChambre`),
-  ADD KEY `idTypeChambre` (`idTypeChambre`);
-
---
--- Index pour la table `Representation`
---
-ALTER TABLE `Representation`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_Lieu` (`id_lieu`),
-  ADD KEY `FK_Groupe` (`id_groupe`);
-
---
--- Index pour la table `TypeChambre`
---
-ALTER TABLE `TypeChambre`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables exportées
+-- Structure de la table `Utilisateur`
 --
 
+DROP TABLE IF EXISTS `Utilisateur`;
+CREATE TABLE IF NOT EXISTS `Utilisateur` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Login` varchar(128) NOT NULL,
+  `Password` varchar(128) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
 --
--- AUTO_INCREMENT pour la table `Representation`
+-- Vider la table avant d'insérer `Utilisateur`
 --
-ALTER TABLE `Representation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+TRUNCATE TABLE `Utilisateur`;
+--
+-- Contenu de la table `Utilisateur`
+--
+
+INSERT INTO `Utilisateur` (`Id`, `Login`, `Password`) VALUES
+(1, '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918');
+
 --
 -- Contraintes pour les tables exportées
 --
@@ -347,3 +369,9 @@ ALTER TABLE `Representation`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+--
+-- Utilisateur festival
+--
+GRANT USAGE ON *.* TO 'festival'@'localhost';
+GRANT ALL PRIVILEGES ON `festival_billetterie`.* TO 'festival'@'localhost' WITH GRANT OPTION;
