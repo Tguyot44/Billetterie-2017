@@ -16,6 +16,7 @@ import DAO.UtilisateurDAO;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -32,6 +33,7 @@ public class CtrlLoginBdd implements WindowListener, MouseListener, ActionListen
         vue.getjTextFieldLogin().addKeyListener(this);
         vue.getjPasswordFieldMdp().addKeyListener(this);
         vue.getjButtonValider().setEnabled(false);
+        vue.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     public JFrameAuthentification getVue() {
@@ -100,8 +102,12 @@ public class CtrlLoginBdd implements WindowListener, MouseListener, ActionListen
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == vue.getjButtonValider()) {            
-            System.out.println(UtilisateurDAO.LogIn(vue.getjTextFieldLogin().getText(), String.valueOf(vue.getjPasswordFieldMdp().getPassword())));
+        if (e.getSource() == vue.getjButtonValider()) {
+            if (UtilisateurDAO.LogIn(vue.getjTextFieldLogin().getText(), String.valueOf(vue.getjPasswordFieldMdp().getPassword()))) {
+                ctrlPrin.showUpdate();
+            } else {
+                JOptionPane.showMessageDialog(null,"Identifiants invalide.");
+            }
         }
     }
 
