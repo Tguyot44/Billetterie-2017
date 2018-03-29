@@ -6,6 +6,7 @@
 package Controller;
 
 import View.JFrameUpdate;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -16,7 +17,7 @@ public class CtrlUpdate {
     JFrameUpdate vue = new JFrameUpdate();
     public CtrlUpdate(CtrlPrincipal ctrlPrin) {
         this.ctrlPrin = ctrlPrin;
-        
+        vue.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     }
     
     public JFrameUpdate getVue(){
