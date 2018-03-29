@@ -10,6 +10,7 @@ import Controller.*;
 import Properties.Reader;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import DAO.UtilisateurDAO;
 
 /**
  *
