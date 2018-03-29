@@ -10,6 +10,7 @@ import Controller.*;
 import Properties.Reader;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import DAO.UtilisateurDAO;
 
 /**
  *
@@ -22,7 +23,6 @@ public class Main {
      */
     public static void main(String[] args) {
 //        Jdbc.creer("oracle.jdbc.driver.OracleDriver", "jdbc:oracle:thin:", "@localhost:1521:XE", "", "btssio", "btssio");
-
         Jdbc.creer("com.mysql.jdbc.Driver", "jdbc:mysql://", "localhost/", Reader.readString("BDD_name"), Reader.readString("BDD_login"), Reader.readString("BDD_mdp"));
         try {
             Jdbc.getInstance().connecter();

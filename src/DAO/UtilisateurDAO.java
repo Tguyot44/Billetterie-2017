@@ -10,22 +10,28 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
  * @author tguyot
  */
 public class UtilisateurDAO {
-    
-    public static void LogIn (String log ,String pswd) {
-        String login = log;
-        String passwrd = pswd;
-    try (Connection conn = DriverManager.getConnection(Reader.readString("BDD_url"), Reader.readString("BDD_login"), Reader.readString("BDD_mdp"));
+
+    public static boolean LogIn(String log, String pswd) {
+        String login = DigestUtils.sha256Hex(log);
+        String passwrd = DigestUtils.sha256Hex(pswd);
+        ResultSet rs = null;
+        try (Connection conn = DriverManager.getConnection(Reader.readString("BDD_url"), Reader.readString("BDD_login"), Reader.readString("BDD_mdp"));
                 Statement stmt = conn.createStatement();) {
-                ResultSet rs = null;
-                rs = stmt.executeQuery("SELECT * FROM `Utilisateur` WHERE `Login` LIKE \""+login+"\"AND `Password` LIKE \""+passwrd+"\" ");
+            String qry = "SELECT * FROM `Utilisateur` WHERE `Login` LIKE \"" + login + "\"AND `Password` LIKE \"" + passwrd + "\" ";
+            rs = stmt.executeQuery(qry);
+            while (rs.next()) {
+                return true;
+            }
         } catch (Exception e) {
-            throw new java.lang.Error("Failed To Execute Statement: \n\r"+e);
+            throw new java.lang.Error("Failed To Execute Statement: \n\r" + e);
         }
+        return false;
     }
 }

@@ -14,28 +14,30 @@ import DAO.RepresentationDAO;
 import Metier.Representation;
 import View.JFrameMenu;
 import View.JFrameReservation;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 
 /**
  *
  * @author qbaudry
  */
-public class CtrlLesRepresentations implements WindowListener, MouseListener {
+public class CtrlLesRepresentations implements WindowListener, MouseListener, ActionListener {
 
     private JFrameMenu vue = new JFrameMenu(); // LA VUE
     private List<Representation> lesRepresentations = null;
     private CtrlPrincipal ctrlPrinc;
-    
+
     public CtrlLesRepresentations(CtrlPrincipal ctrlPrinc) {
-       this.ctrlPrinc = ctrlPrinc;
+        this.ctrlPrinc = ctrlPrinc;
         // le contrôleur écoute la vue
         this.vue.addWindowListener(this);
         this.vue.getjTableRepresentation().addMouseListener(this);
         // préparer l'état initial de la vue
         afficherLesRepresentations();
-
+        this.vue.getConnDB().addActionListener(this);
     }
 
     // contrôle de la vue
@@ -128,4 +130,10 @@ public class CtrlLesRepresentations implements WindowListener, MouseListener {
     public void mouseExited(MouseEvent e) {
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == vue.getConnDB()) {
+            this.ctrlPrinc.showLogDb();
+        }
+    }
 }
