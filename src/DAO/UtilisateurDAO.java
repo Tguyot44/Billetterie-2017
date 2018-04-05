@@ -22,7 +22,7 @@ public class UtilisateurDAO {
         String login = DigestUtils.sha256Hex(log);
         String passwrd = DigestUtils.sha256Hex(pswd);
         ResultSet rs = null;
-        try (Connection conn = DriverManager.getConnection(Reader.readString("BDD_url"), Reader.readString("BDD_login"), Reader.readString("BDD_mdp"));
+        try (Connection conn = DriverManager.getConnection(Reader.readString("BDD_url_dist"), Reader.readString("BDD_login_dist"), Reader.readString("BDD_mdp_dist"));
                 Statement stmt = conn.createStatement();) {
             String qry = "SELECT * FROM `Utilisateur` WHERE `Login` LIKE \"" + login + "\"AND `Password` LIKE \"" + passwrd + "\" ";
             rs = stmt.executeQuery(qry);
