@@ -103,11 +103,7 @@ public class CtrlLoginBdd implements WindowListener, MouseListener, ActionListen
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vue.getjButtonValider()) {
-            if (UtilisateurDAO.LogIn(vue.getjTextFieldLogin().getText(), String.valueOf(vue.getjPasswordFieldMdp().getPassword()))) {
-                ctrlPrin.showUpdate();
-            } else {
-                JOptionPane.showMessageDialog(null,"Identifiants invalide.");
-            }
+            testUsrPswd();
         }
     }
 
@@ -117,6 +113,9 @@ public class CtrlLoginBdd implements WindowListener, MouseListener, ActionListen
             vue.getjButtonValider().setEnabled(false);
         } else {
             vue.getjButtonValider().setEnabled(true);
+            if (e.getKeyChar() == KeyEvent.VK_ENTER) {
+                testUsrPswd();
+            }
         }
     }
 
@@ -126,5 +125,14 @@ public class CtrlLoginBdd implements WindowListener, MouseListener, ActionListen
 
     @Override
     public void keyReleased(KeyEvent e) {
+    }
+
+    private void testUsrPswd() {
+        if (UtilisateurDAO.LogIn(vue.getjTextFieldLogin().getText(), String.valueOf(vue.getjPasswordFieldMdp().getPassword()))) {
+            ctrlPrin.showUpdate();
+            ctrlPrin.hideLogDb();
+        } else {
+            JOptionPane.showMessageDialog(null, "Identifiants invalide.");
+        }
     }
 }
